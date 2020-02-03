@@ -1,5 +1,5 @@
 # XMGVue
-Vue.js
+Learn Vue.js
 
 ### 10-组件化开发
 
@@ -687,4 +687,10 @@ Vue.js
 
 #### 1. 什么是webpack
 
-![./mdjpg/](E:\Code\XMGVue\mdjpg\什么是webpack.png)
+![image](http://m.qpic.cn/psc?/V13nxsPN3V5ukd/q8Q4MIggA9NuFR1Fl4CvljcwwcuSIv7WWp5fzBazCP5AisVy5Ainy6vroxma9x0**EkuFtf8gKMDU8KUBUbqcBM8*KOU8wgmfN6.BKoKSm4!/b&bo=LATbAiwE2wIDByI!&rf=viewer_4)
+
+#### 2. webpack安装
+
+- webpack模块化打包 webpack为了可以正常运行,必须依赖于node环境,node环境为了可以正常的执行很多代码,必须其中包含各种依赖的包,npm工具(npm packages manager)
+
+![image](http://m.qpic.cn/psc?/V13nxsPN3V5ukd/q8Q4MIggA9NuFR1Fl4Cvlr8hAnQJW3TkfrKsbSTZrmV28JxnIxfBaJ*6MWyWegPblT*4D59BhTuw.lMAWst8axU7bvJ8LPjgFgLjF6Smebw!/b&bo=dwPwAXcD8AERBzA!&rf=viewer_4)
