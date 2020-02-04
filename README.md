@@ -694,3 +694,103 @@ Learn Vue.js
 - webpack模块化打包 webpack为了可以正常运行,必须依赖于node环境,node环境为了可以正常的执行很多代码,必须其中包含各种依赖的包,npm工具(npm packages manager)
 
 ![image](http://m.qpic.cn/psc?/V13nxsPN3V5ukd/q8Q4MIggA9NuFR1Fl4Cvlr8hAnQJW3TkfrKsbSTZrmV28JxnIxfBaJ*6MWyWegPblT*4D59BhTuw.lMAWst8axU7bvJ8LPjgFgLjF6Smebw!/b&bo=dwPwAXcD8AERBzA!&rf=viewer_4)
+
+#### 3. 准备工作
+
+![image](http://server.xmyeditor.com/sucai-jpg/20200204/613c396c58009618c17d1d8b94fee631.jpg)
+
+#### 1. 在没有配置的情况下可执行:
+
+```npm
+	$ webpack ./src/main.js ./dist/bundle.js
+	  Hash: 74f524a361cfecad7dce
+	  Version: webpack 3.6.0
+	  Time: 48ms
+	  		Asset     Size  Chunks             Chunk Names
+	  bundle.js  2.79 kB       0  [emitted]  main
+	  	[0] ./src/main.js 96 bytes {0} [built]
+	  	[1] ./src/mathUtils.js 142 bytes {0} [built]
+			[2] ./src/info.js 76 bytes {0} [built]
+```
+
+##### 2. 配置 webpack.config.js 入口和出口
+
+![image](http://server.xmyeditor.com/sucai-jpg/20200204/92de29d2abd2312b0d99c0329039079b.jpg)
+
+```javascript
+
+	// 导入 nodejs 的 path 模块
+	const path = require('path')
+	
+	module.exports = {
+		// 入口文件
+		entry: './src/main.js',
+		// 出口文件
+		output: {
+			// 动态的获取路径
+			path: path.resolve(__dirname, 'dist'),
+			filename: 'bundle.js'
+		}
+	}
+```
+
+执行:(效果是一样的)
+
+```npm
+	$ webpack
+	  Hash: 334ca42ef0680679dc01
+	  Version: webpack 3.6.0
+	  Time: 54ms
+	      Asset     Size  Chunks             Chunk Names
+	  bundle.js  3.63 kB       0  [emitted]  main
+	     [0] ./src/main.js 283 bytes {0} [built]
+	     [1] ./src/mathUtils.js 142 bytes {0} [built]
+	     [2] ./src/info.js 76 bytes {0} [built]
+```
+
+##### 3. 在配置 package.json 文件中的 scripts 属性定义启动:
+
+![image](http://server.xmyeditor.com/sucai-jpg/20200204/3841cbfd337282d934e3d67a18766841.jpg)
+
+```JavaScript
+	{
+	  "name": "meetwabpack",
+	  "version": "1.0.0",
+	  "description": "",
+	  "main": "index.js",
+		"scripts": {
+			<!-- 想要执行 后面的代码 可以执行 npm run test -->
+			"test": "echo \"Error: no test specified\" && exit 1",
+			<!-- 同理 想要执行 webpack 可以 执行 npm run build -->
+			"build": "webpack"
+		},
+	  "author": "",
+	  "license": "ISC",
+		<!-- dev 开发时依赖 -->
+	  "devDependencies": {
+	    "webpack": "^3.6.0"
+	  }
+	}
+	
+```
+
+再次执行:(效果同样相同)
+
+```npm
+	$ npm run build
+	  > meetwabpack@1.0.0 build D:\AAA\codes\XMGVue\LearnVuejs-v2\01-webpack的使用\02-webpack的配置
+	  > webpack
+	
+	  Hash: 334ca42ef0680679dc01
+	  Version: webpack 3.6.0
+	  Time: 55ms
+	      Asset     Size  Chunks             Chunk Names
+	  bundle.js  3.63 kB       0  [emitted]  main
+	     [0] ./src/main.js 283 bytes {0} [built]
+	     [1] ./src/mathUtils.js 142 bytes {0} [built]
+	     [2] ./src/info.js 76 bytes {0} [built]
+```
+
+#### 4. 什么是loader?
+
+![image](http://server.xmyeditor.com/sucai-jpg/20200204/5e3946912dc3cigaimuexje.jpg)
