@@ -699,7 +699,7 @@ Learn Vue.js
 
 ![image](http://server.xmyeditor.com/sucai-jpg/20200204/613c396c58009618c17d1d8b94fee631.jpg)
 
-#### 1. 在没有配置的情况下可执行:
+##### 1. 在没有配置的情况下可执行:
 
 ```npm
 	$ webpack ./src/main.js ./dist/bundle.js
