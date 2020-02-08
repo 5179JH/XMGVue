@@ -710,7 +710,7 @@ Learn Vue.js
 	  bundle.js  2.79 kB       0  [emitted]  main
 	  	[0] ./src/main.js 96 bytes {0} [built]
 	  	[1] ./src/mathUtils.js 142 bytes {0} [built]
-			[2] ./src/info.js 76 bytes {0} [built]
+		[2] ./src/info.js 76 bytes {0} [built]
 ```
 
 ##### 2. 配置 webpack.config.js 入口和出口
@@ -771,7 +771,6 @@ Learn Vue.js
 	    "webpack": "^3.6.0"
 	  }
 	}
-	
 ```
 
 再次执行:(效果同样相同)
@@ -794,3 +793,4 @@ Learn Vue.js
 #### 4. 什么是loader?
 
 ![image](http://server.xmyeditor.com/sucai-jpg/20200204/5e3946912dc3cigaimuexje.jpg)
+
