@@ -1,0 +1,27 @@
+// 导入 nodejs 的 path 模块
+const path = require('path')
+
+module.exports = {
+	// 入口文件
+	entry: './src/main.js',
+	// 出口文件
+	output: {
+		// 动态的获取路径
+		path: path.resolve(__dirname, 'dist'),
+		filename: 'bundle.js'
+	},
+	// css 文件loder配置
+	module: {
+    rules: [
+      {
+				// 使用正则表达式匹配 css 文件 然后传给下面的loder
+				test: /\.css$/,
+				// css-loder 只负责解析 CSS 文件后，使用 import 加载，然后返回 css 代码
+				// style-loader 会将模块的导出作为样式添加到 DOM 中
+				use: [ 'style-loader', 'css-loader' ]
+        // use: [ 'css-loader', 'style-loader' ] 使用多个 loder 时,是从右向左读的,所以调换位置不可以
+				
+      }
+    ]
+  }
+}
