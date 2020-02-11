@@ -1,15 +1,23 @@
 # XMGVue
 Learn Vue.js
 
-### 10-组件化开发
+**Vue 知识点汇总（上）**
 
-#### 1. 什么是组件化
+**附案例代码及项目地址 https://blog.csdn.net/wuyxinu/article/details/103965753 
+Vue 知识点汇总（下）**
+
+**附案例代码及项目地址   https://blog.csdn.net/wuyxinu/article/details/103966175
+老师视频的知识点汇总，有兴趣的可以看看**
+
+## 10-组件化开发
+
+### 1. 什么是组件化
 ![image](http://m.qpic.cn/psb?/V13nxsPN3V5ukd/RZ1ozzYe8NK5uHsLD07y1Da7gOtxEr9oF6cD6qttzF8!/b/dL4AAAAAAAAA&bo=UgXfAlIF3wIDCSw!&rf=viewer_4)
 
-#### 2. Vue组件化思想
+### 2. Vue组件化思想
 ![image](http://m.qpic.cn/psb?/V13nxsPN3V5ukd/hyoVyjerIucVnez4Uxn26IRI8vzxNqrlrBRrXMkYnUQ!/b/dL8AAAAAAAAA&bo=6gPfAuoD3wIDCSw!&rf=viewer_4)
 
-#### 3.注册组件的基础步骤
+### 3.注册组件的基础步骤
 ![image](http://m.qpic.cn/psb?/V13nxsPN3V5ukd/d5VfPMVwdVIDvFrBVII7SUSGM.7sLTP24d893U6U7Rc!/b/dL4AAAAAAAAA&bo=wQMFAsEDBQIDORw!&rf=viewer_4)
 
 ```JavaScript
@@ -34,12 +42,12 @@ Learn Vue.js
     	})
     </script>
 ```
-#### 4. 注册组件步骤解析
+### 4. 注册组件步骤解析
 ![image](http://m.qpic.cn/psb?/V13nxsPN3V5ukd/91ZS54RGcWV5Eqw0h1QDRyS7hfkUfby.lsVqsC7GzUM!/b/dL4AAAAAAAAA&bo=XQWyAl0FsgIDCSw!&rf=viewer_4)
 
 ![image](http://m.qpic.cn/psb?/V13nxsPN3V5ukd/nY*Kqyr67cCftFcnzkjANbNTY74Srk9.x5UfP7XAXNs!/b/dL8AAAAAAAAA&bo=TgVPAk4FTwIDORw!&rf=viewer_4)
 
-#### 5. 局部组件和全局组件
+### 5. 局部组件和全局组件
 ![image](http://m.qpic.cn/psb?/V13nxsPN3V5ukd/MROdHyYW*fC9a6foDEbI4uOvcHVj6YLPAMVeJsoXUY0!/b/dL4AAAAAAAAA&bo=ZgTbAmYE2wIDCSw!&rf=viewer_4)
 ```JavaScript
     <div id="app2">
@@ -81,7 +89,7 @@ Learn Vue.js
 		})
 	</script>
 ```
-#### 6. 父组件和子组件
+### 6. 父组件和子组件
 ![image](http://a4.qpic.cn/psb?/V13nxsPN3V5ukd/c32nn3NdUH6THuUo63kNRiXgDWNCKx6aom1BVHUR5Ao!/b/dIMAAAAAAAAA&ek=1&kp=1&pt=0&bo=ZwRcAmcEXAIDORw!&tl=1&vuin=1448557338&tm=1573822800&sce=60-2-2&rf=viewer_4)
 ```JavaScript
     <div id="app">
@@ -122,7 +130,7 @@ Learn Vue.js
 		})
 	</script>
 ```
-#### 7. 注册组件语法糖
+### 7. 注册组件语法糖
 ![image](http://m.qpic.cn/psb?/V13nxsPN3V5ukd/yAd5HOlN5af2nLm3VaW3*52Bj.UqS7yb3ed1h1sgwdA!/b/dLYAAAAAAAAA&bo=YwN7AmMDewIDCSw!&rf=viewer_4)
 ```JavaScript
     <div id="app">
@@ -159,7 +167,7 @@ Learn Vue.js
 		})
 	</script>
 ```
-#### 8. 模板的分离写法
+### 8. 模板的分离写法
 ![image](http://m.qpic.cn/psb?/V13nxsPN3V5ukd/RkXacLUIihOMEsNFhVMQMWjED11czTd3rcBQlbjB0Ms!/b/dLYAAAAAAAAA&bo=YgZmA2IGZgMDCSw!&rf=viewer_4)
 ```JavaScript
     <div id="app">
@@ -193,7 +201,7 @@ Learn Vue.js
 		})
 	</script>
 ```
-#### 9. 组件可以访问Vue实例中的数据吗?
+### 9. 组件可以访问Vue实例中的数据吗?
 ![image](http://m.qpic.cn/psb?/V13nxsPN3V5ukd/RjLW8rwa6pFUD66T4.qiJRXkocUOKMEnrc4hbTC2GCU!/b/dMMAAAAAAAAA&bo=iQP.AYkD*gEDCSw!&rf=viewer_4)
 ```JavaScript
     <div id="app">
@@ -224,9 +232,9 @@ Learn Vue.js
 		})
 	</script>
 ```
-#### 10. 父子组件之间的通信
+### 10. 父子组件之间的通信
 ![image](http://m.qpic.cn/psb?/V13nxsPN3V5ukd/Rw6Rp.A6ewTP2bR0WYCVu908zQLPW6hEEoDuPRPetMQ!/b/dLYAAAAAAAAA&bo=4wMMAuMDDAIDCSw!&rf=viewer_4)
-#### 11. props数据验证
+### 11. props数据验证
 ![image](http://m.qpic.cn/psb?/V13nxsPN3V5ukd/Wlo7JFo6PSHMpdtaTqDMHCTe4*z2U*CcRhgeghzEupU!/b/dDQBAAAAAAAA&bo=WgZnA1oGZwMDSWw!&rf=viewer_4)
 ```JavaScript
     <div id="app">
@@ -282,7 +290,7 @@ Learn Vue.js
 		})
 	</script>
 ```
-#### 12. 组件通信-父传子(props中的驼峰标识)
+### 12. 组件通信-父传子(props中的驼峰标识)
 ```JavaScript
     <div id="app">
 		{{message}}
@@ -329,7 +337,7 @@ Learn Vue.js
 		})
 	</script>
 ```
-#### 13.子级向父级传递
+### 13.子级向父级传递
 ![image](http://m.qpic.cn/psb?/V13nxsPN3V5ukd/hg*MKnUVXxrkeANq15ycWa1BMvn5vEnp2lgk8DBP1EA!/b/dLYAAAAAAAAA&bo=CQO1AQkDtQEDCSw!&rf=viewer_4)
 ![image](http://m.qpic.cn/psb?/V13nxsPN3V5ukd/Ud4whXjDDCMNLFkVfRsPEjR60OP3NKKK*zXZ437hh*g!/b/dMMAAAAAAAAA&bo=WQOpAVkDqQEDKQw!&rf=viewer_4)
 ```
@@ -383,7 +391,7 @@ Learn Vue.js
 		})
 	</script>
 ```
-#### 14. 组件通信-父子组件通信案例
+### 14. 组件通信-父子组件通信案例
 ![image](http://m.qpic.cn/psb?/V13nxsPN3V5ukd/8fyHaQ4JOD3Vrd9cBhkh.NGAzpmx3rTFlZcEHNz7ig0!/b/dIMAAAAAAAAA&bo=hwKUAYcClAEDCSw!&rf=viewer_4)
 ```JavaScript
     <div id="app">
@@ -456,7 +464,7 @@ Learn Vue.js
 		})
 	</script>
 ```
-#### 15. 组件访问-父访问子-$children-$refs
+### 15. 组件访问-父访问子-$children-$refs
 ```JavaScript
     <div id="app">
 		{{message}}
@@ -509,7 +517,7 @@ Learn Vue.js
 		})
 	</script>
 ```
-#### 16. 组件访问-子访问父-$parent-$root
+### 16. 组件访问-子访问父-$parent-$root
 ```JavaScript
     <div id="app">
 		<h2>我是cpn组件</h2>
@@ -562,11 +570,11 @@ Learn Vue.js
 	</script>
 ```
 
-### 11-组件化高级
+## 11-组件化高级
 
-#### 1. 为什么使用slot
+### 1. 为什么使用slot
 ![image](http://m.qpic.cn/psb?/V13nxsPN3V5ukd/2FlQiPzXYOtU97bb4lhKEwC4AvorleHvIm5UnLSaLsg!/b/dMMAAAAAAAAA&bo=egPGAXoDxgEDCSw!&rf=viewer_4)
-#### 2. slot的基本使用
+### 2. slot的基本使用
 ![image](http://m.qpic.cn/psb?/V13nxsPN3V5ukd/wOng1fR7eQWWH8Qi9kuNTrc*szIPV99JzbocdWvHQiw!/b/dL8AAAAAAAAA&bo=QAPZAUAD2QEDJwI!&rf=viewer_4)
 ```JavaScript
 	<!-- 
@@ -610,7 +618,7 @@ Learn Vue.js
 		})
 	</script>
 ```
-#### 3. 具名插槽slot
+### 3. 具名插槽slot
 ![image](http://m.qpic.cn/psb?/V13nxsPN3V5ukd/pg92bvwOFZ8z8L.XAaURZ0P6wscOq8EwcnwzsASP7Ac!/b/dLYAAAAAAAAA&bo=ggPlAYID5QEDByI!&rf=viewer_4)
 ```JavaScript
     <div id="app">
@@ -641,7 +649,7 @@ Learn Vue.js
 	</script>
 ```
 
-#### 4. 高阶函数
+### 4. 高阶函数
 > filter/map/reduce
 - filter 中的回调函数有一个要求:必须返回一个boolean值
     + true: 当返回值为 true 时,函数内部会自动把这次回调的 item 加到新的数组中.
@@ -683,23 +691,25 @@ Learn Vue.js
 			console.log(total) 
 ```
 
-### 12-webpack教程
+## 12-webpack教程
 
-#### 1. 什么是webpack
+### 1. 什么是webpack
 
 ![image](http://m.qpic.cn/psc?/V13nxsPN3V5ukd/q8Q4MIggA9NuFR1Fl4CvljcwwcuSIv7WWp5fzBazCP5AisVy5Ainy6vroxma9x0**EkuFtf8gKMDU8KUBUbqcBM8*KOU8wgmfN6.BKoKSm4!/b&bo=LATbAiwE2wIDByI!&rf=viewer_4)
 
-#### 2. webpack安装
+### 2. webpack安装
 
 - webpack模块化打包 webpack为了可以正常运行,必须依赖于node环境,node环境为了可以正常的执行很多代码,必须其中包含各种依赖的包,npm工具(npm packages manager)
 
 ![image](http://m.qpic.cn/psc?/V13nxsPN3V5ukd/q8Q4MIggA9NuFR1Fl4Cvlr8hAnQJW3TkfrKsbSTZrmV28JxnIxfBaJ*6MWyWegPblT*4D59BhTuw.lMAWst8axU7bvJ8LPjgFgLjF6Smebw!/b&bo=dwPwAXcD8AERBzA!&rf=viewer_4)
 
-#### 3. 准备工作
+### 3. webpack相关配置
+
+#### a.准备工作
 
 ![image](http://server.xmyeditor.com/sucai-jpg/20200204/613c396c58009618c17d1d8b94fee631.jpg)
 
-##### a. 在没有配置的情况下可执行:
+#### b. 在没有配置的情况下可执行:
 
 ```npm
 	$ webpack ./src/main.js ./dist/bundle.js
@@ -713,7 +723,7 @@ Learn Vue.js
 		[2] ./src/info.js 76 bytes {0} [built]
 ```
 
-##### b. 配置 webpack.config.js 入口和出口
+#### c. 配置 webpack.config.js 入口和出口
 
 ![image](http://server.xmyeditor.com/sucai-jpg/20200204/92de29d2abd2312b0d99c0329039079b.jpg)
 
@@ -748,7 +758,7 @@ Learn Vue.js
 	     [2] ./src/info.js 76 bytes {0} [built]
 ```
 
-##### c. 在配置 package.json 文件中的 scripts 属性定义启动:
+#### d. 在配置 package.json 文件中的 scripts 属性定义启动:
 
 ![image](http://server.xmyeditor.com/sucai-jpg/20200204/3841cbfd337282d934e3d67a18766841.jpg)
 
@@ -790,23 +800,34 @@ Learn Vue.js
 	     [2] ./src/info.js 76 bytes {0} [built]
 ```
 
-#### 4. 什么是loader?
+### 4. 什么是loader?
 
 ![image](http://server.xmyeditor.com/sucai-jpg/20200204/5e3946912dc3cigaimuexje.jpg)
 
-##### a. css文件处理-准备工作
+#### a. css文件处理
+
+- **准备工作**
 
 ![image](http://server.xmyeditor.com/sucai-jpg/20200209/5e4025176577dnwijhvdnhh.jpg)
 
-#####  b. css文件处理-打包错误信息
+- 打包错误信息
 
 ![image](http://server.xmyeditor.com/sucai-jpg/20200209/5e402517d2823mxhjookjgb.jpg)
 
-##### c. css文件处理--css-loader
+- **css-loader**
 
 ![image](http://server.xmyeditor.com/sucai-jpg/20200209/5e4025175a00fpajtrdfiue.jpg)
 
-##### d. css文件处理--style-loader
+- **style-loader**
 
 ![image](http://server.xmyeditor.com/sucai-jpg/20200209/5e40251753288lllgjqegnz.jpg)
 
+#### b. less文件处理
+
+- **准备工作**
+
+![image](http://server.xmyeditor.com/sucai-jpg/20200211/38891091a0d4bdec3fc7b72f86a158fa.jpg)
+
+- **less-loader**
+
+![image](http://server.xmyeditor.com/sucai-jpg/20200211/30d4ce9d400862d6e27f89c2556f46b4.jpg)

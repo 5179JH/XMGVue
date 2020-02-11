@@ -20,7 +20,29 @@ module.exports = {
 				// style-loader 会将模块的导出作为样式添加到 DOM 中
 				use: [ 'style-loader', 'css-loader' ]
         // use: [ 'css-loader', 'style-loader' ] 使用多个 loder 时,是从右向左读的,所以调换位置不可以
-				
+			},
+			{
+				test: /\.less$/,
+				use: [{
+						loader: "style-loader" // creates style nodes from JS strings
+				},
+				{
+						loader: "css-loader" // translates CSS into CommonJS
+				},
+				{
+						loader: "less-loader" // compiles Less to CSS
+				}]
+			},
+			{
+        test: /\.(png|jpg|gif)$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 150000
+            }
+          }
+        ]
       }
     ]
   }
