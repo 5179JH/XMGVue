@@ -39,7 +39,8 @@ module.exports = {
           {
             loader: 'url-loader',
             options: {
-              limit: 150000
+							// 当加载的图片小于 limit 时, 会将图片图片编译成 base64 的形式
+              limit: 28000
             }
           }
         ]
