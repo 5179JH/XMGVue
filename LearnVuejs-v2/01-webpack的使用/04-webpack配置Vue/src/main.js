@@ -18,3 +18,13 @@ require('./css/normal.css')
 require('./css/special.less')
 
 document.writeln('<h3>你好啊,webpack!</h3>')
+
+// 5.使用 vue 进行开发
+import Vue from 'vue'
+
+const app = new Vue({
+  el: '#app',
+  data: {
+    message: 'Hello Webpack'
+  }
+})
