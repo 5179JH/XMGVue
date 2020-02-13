@@ -696,10 +696,15 @@ document.writeln('<h3>你好啊,webpack!</h3>');
 // 5.使用 vue 进行开发
 
 
-var app = new _vue2.default({
+new _vue2.default({
   el: '#app',
+  template: '\n  <div>\n  <h2>{{message}}</h2>\n  <button @click=\'btnClick\'>\u6309\u94AE</button>\n  <h2>{{name}}</h2>\n  </div>\n  ',
   data: {
-    message: 'Hello Webpack'
+    message: 'Hello Webpack',
+    name: 'coderwhy'
+  },
+  methods: {
+    btnClick: function btnClick() {}
   }
 });
 

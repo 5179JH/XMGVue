@@ -863,3 +863,12 @@ Learn Vue.js
 ### 4. webpack配置Vue
 
 #### a. 引入vue.js
+
+![image](http://m.qpic.cn/psc?/V13nxsPN3V5ukd/q8Q4MIggA9NuFR1Fl4CvloQGGx9ZbxAgllGTXgs49wkYZoznd70lif5l.lhls1w8zI0tWhIpv.OLWM4fFZW.FlOQhm6VLakh0rThhpnvLpI!/b&bo=lATKApQEygIRCT4!&rf=viewer_4)
+
+#### b. el和template的区别
+
+- **区别一**
+
+![image](http://m.qpic.cn/psc?/V13nxsPN3V5ukd/q8Q4MIggA9NuFR1Fl4CvlkCIdsJK8TujpuD3gj4RoupCZ0vZaVfM2HrUMc0usCfBj5v0pnL0SU0l*22ZBfA8TYUygQW3Z3twvwnPxJFUgHU!/b&bo=UwXgAlMF4AIRBzA!&rf=viewer_4)
+

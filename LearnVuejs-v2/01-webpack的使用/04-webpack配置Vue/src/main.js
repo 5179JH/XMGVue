@@ -22,9 +22,22 @@ document.writeln('<h3>你好啊,webpack!</h3>')
 // 5.使用 vue 进行开发
 import Vue from 'vue'
 
-const app = new Vue({
+new Vue({
   el: '#app',
+  template: `
+  <div>
+  <h2>{{message}}</h2>
+  <button @click='btnClick'>按钮</button>
+  <h2>{{name}}</h2>
+  </div>
+  `,
   data: {
-    message: 'Hello Webpack'
+    message: 'Hello Webpack',
+    name: 'coderwhy'
+  },
+  methods: {
+    btnClick() {
+      
+    }
   }
 })
