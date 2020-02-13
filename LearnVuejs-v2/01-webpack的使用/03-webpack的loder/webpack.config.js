@@ -47,7 +47,19 @@ module.exports = {
 						}
           }
         ]
-      }
+			},
+			{
+				test: /\.js$/,
+				// include: 包含
+				// exclude: 排除
+				exclude: /(node_modules|bower_components)/,
+				use: {
+					loader: 'babel-loader',
+					options: {
+						presets: ['es2015']
+					}
+				}
+			}
     ]
   }
 }
