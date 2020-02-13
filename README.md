@@ -3,11 +3,11 @@ Learn Vue.js
 
 **Vue 知识点汇总（上）**
 
-**附案例代码及项目地址 https://blog.csdn.net/wuyxinu/article/details/103965753 
-Vue 知识点汇总（下）**
+**附案例代码及项目地址 https://blog.csdn.net/wuyxinu/article/details/103965753 **
 
-**附案例代码及项目地址   https://blog.csdn.net/wuyxinu/article/details/103966175
-老师视频的知识点汇总，有兴趣的可以看看**
+**Vue 知识点汇总（下）**
+
+**附案例代码及项目地址   https://blog.csdn.net/wuyxinu/article/details/103966175**
 
 ## 10-组件化开发
 
@@ -831,3 +831,21 @@ Vue 知识点汇总（下）**
 - **less-loader**
 
 ![image](http://server.xmyeditor.com/sucai-jpg/20200211/30d4ce9d400862d6e27f89c2556f46b4.jpg)
+
+#### c. 图片文件处理
+
+- **资源准备阶段**
+
+![image](http://server.xmyeditor.com/sucai-jpg/20200213/e58d80d871f26877c6a59fa6410fe8c7.jpg)
+
+- **url-loader**
+
+![image](http://server.xmyeditor.com/sucai-jpg/20200213/82076f31e44d2cc2863f94e115399cb0.jpg)
+
+- **file-loader**
+
+![image](http://server.xmyeditor.com/sucai-jpg/20200213/b95d858bf3101d49a83e23d826133cc5.jpg)
+
+- **修改文件名称**
+
+![image](http://server.xmyeditor.com/sucai-jpg/20200213/9023f44b7c3457c4b70d2ade00c0ef31.jpg)

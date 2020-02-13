@@ -8,7 +8,8 @@ module.exports = {
 	output: {
 		// 动态的获取路径
 		path: path.resolve(__dirname, 'dist'),
-		filename: 'bundle.js'
+		filename: 'bundle.js',
+		publicPath: 'dist/'
 	},
 	// css 文件loder配置
 	module: {
@@ -40,8 +41,10 @@ module.exports = {
             loader: 'url-loader',
             options: {
 							// 当加载的图片小于 limit 时, 会将图片图片编译成 base64 的形式
-              limit: 28000
-            }
+							// 当加载的图片大图 limit 时,需要使用 file-loader 模块进行加载
+							limit: 28000,
+							name: 'img/[name].[hash:8].[ext]' // ext(extension)
+						}
           }
         ]
       }
