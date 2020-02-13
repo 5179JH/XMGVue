@@ -693,17 +693,19 @@ Learn Vue.js
 
 ## 12-webpack教程
 
-### 1. 什么是webpack
+### 1. webpack的起步
+
+#### a. 什么是webpack
 
 ![image](http://m.qpic.cn/psc?/V13nxsPN3V5ukd/q8Q4MIggA9NuFR1Fl4CvljcwwcuSIv7WWp5fzBazCP5AisVy5Ainy6vroxma9x0**EkuFtf8gKMDU8KUBUbqcBM8*KOU8wgmfN6.BKoKSm4!/b&bo=LATbAiwE2wIDByI!&rf=viewer_4)
 
-### 2. webpack安装
+#### b. webpack安装
 
 - webpack模块化打包 webpack为了可以正常运行,必须依赖于node环境,node环境为了可以正常的执行很多代码,必须其中包含各种依赖的包,npm工具(npm packages manager)
 
 ![image](http://m.qpic.cn/psc?/V13nxsPN3V5ukd/q8Q4MIggA9NuFR1Fl4Cvlr8hAnQJW3TkfrKsbSTZrmV28JxnIxfBaJ*6MWyWegPblT*4D59BhTuw.lMAWst8axU7bvJ8LPjgFgLjF6Smebw!/b&bo=dwPwAXcD8AERBzA!&rf=viewer_4)
 
-### 3. webpack相关配置
+### 2. webpack相关配置
 
 #### a.准备工作
 
@@ -800,11 +802,13 @@ Learn Vue.js
 	     [2] ./src/info.js 76 bytes {0} [built]
 ```
 
-### 4. 什么是loader?
+### 3. webpack的loade
+
+#### a. 什么是loader
 
 ![image](http://server.xmyeditor.com/sucai-jpg/20200204/5e3946912dc3cigaimuexje.jpg)
 
-#### a. css文件处理
+#### b. css文件处理
 
 - **准备工作**
 
@@ -822,7 +826,7 @@ Learn Vue.js
 
 ![image](http://server.xmyeditor.com/sucai-jpg/20200209/5e40251753288lllgjqegnz.jpg)
 
-#### b. less文件处理
+#### c. less文件处理
 
 - **准备工作**
 
@@ -832,7 +836,7 @@ Learn Vue.js
 
 ![image](http://server.xmyeditor.com/sucai-jpg/20200211/30d4ce9d400862d6e27f89c2556f46b4.jpg)
 
-#### c. 图片文件处理
+#### d. 图片文件处理
 
 - **资源准备阶段**
 
@@ -849,3 +853,13 @@ Learn Vue.js
 - **修改文件名称**
 
 ![image](http://server.xmyeditor.com/sucai-jpg/20200213/9023f44b7c3457c4b70d2ade00c0ef31.jpg)
+
+#### e. bable(babel-loader)的使用
+
+- **ES6语法处理**
+
+![image](http://server.xmyeditor.com/sucai-jpg/20200213/31e204b0e179993a2eee10a01e2bf5f7.jpg)
+
+### 4. webpack配置Vue
+
+#### a. 引入vue.js
