@@ -668,10 +668,14 @@ var _vue = __webpack_require__(6);
 
 var _vue2 = _interopRequireDefault(_vue);
 
+var _App = __webpack_require__(9);
+
+var _App2 = _interopRequireDefault(_App);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // 1. 使用 common.js 的模块化规范
-var _require = __webpack_require__(9),
+var _require = __webpack_require__(10),
     add = _require.add,
     mul = _require.mul;
 
@@ -686,10 +690,10 @@ console.log(_info.age);
 console.log(_info.height);
 
 // 3. 依赖 css 文件
-__webpack_require__(10);
+__webpack_require__(11);
 
 // 4. 依赖 less 文件
-__webpack_require__(14);
+__webpack_require__(15);
 
 document.writeln('<h3>你好啊,webpack!</h3>');
 
@@ -698,13 +702,9 @@ document.writeln('<h3>你好啊,webpack!</h3>');
 
 new _vue2.default({
   el: '#app',
-  template: '\n  <div>\n  <h2>{{message}}</h2>\n  <button @click=\'btnClick\'>\u6309\u94AE</button>\n  <h2>{{name}}</h2>\n  </div>\n  ',
-  data: {
-    message: 'Hello Webpack',
-    name: 'coderwhy'
-  },
-  methods: {
-    btnClick: function btnClick() {}
+  template: '<App></App>',
+  components: {
+    App: _App2.default
   }
 });
 
@@ -12989,6 +12989,12 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 
 /***/ }),
 /* 9 */
+/***/ (function(module, exports) {
+
+throw new Error("Module parse failed: E:\\Code\\XMGVue\\LearnVuejs-v2\\01-webpack的使用\\04-webpack配置Vue\\src\\vue\\App.vue Unexpected token (1:0)\nYou may need an appropriate loader to handle this file type.\n| <template>\r\n|    <div>\r\n|     <h2 class=\"title\">{{message}}</h2>\r");
+
+/***/ }),
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13008,11 +13014,11 @@ module.exports = {
 };
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var api = __webpack_require__(2);
-            var content = __webpack_require__(11);
+            var content = __webpack_require__(12);
 
             content = content.__esModule ? content.default : content;
 
@@ -13034,13 +13040,13 @@ var exported = content.locals ? content.locals : {};
 module.exports = exported;
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(3);
-var ___CSS_LOADER_GET_URL_IMPORT___ = __webpack_require__(12);
-var ___CSS_LOADER_URL_IMPORT_0___ = __webpack_require__(13);
+var ___CSS_LOADER_GET_URL_IMPORT___ = __webpack_require__(13);
+var ___CSS_LOADER_URL_IMPORT_0___ = __webpack_require__(14);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 // Module
@@ -13050,7 +13056,7 @@ module.exports = exports;
 
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13090,7 +13096,7 @@ module.exports = function (url, options) {
 };
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -13098,11 +13104,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "img/big.a94997bb.png");
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var api = __webpack_require__(2);
-            var content = __webpack_require__(15);
+            var content = __webpack_require__(16);
 
             content = content.__esModule ? content.default : content;
 
@@ -13124,7 +13130,7 @@ var exported = content.locals ? content.locals : {};
 module.exports = exported;
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
