@@ -876,10 +876,10 @@ Learn Vue.js
 
 ![image](http://m.qpic.cn/psc?/V13nxsPN3V5ukd/q8Q4MIggA9NuFR1Fl4CvlptYQlEYPy826sRJGt86MPiXy5CLDRhRRtIL3avN0I5vPMrYwwmmk1TeW9AShGov679JGmTJkXIzlarBTHKasj4!/b&bo=VAUQAlQFEAIRFyA!&rf=viewer_4)
 
-- **Vue组件化开发引入**
+####  c. Vue组件化开发引入
 
 ![image](http://m.qpic.cn/psc?/V13nxsPN3V5ukd/q8Q4MIggA9NuFR1Fl4CvllXVNFZn2HsBksG.M0IvQsc3KW9m6Hl8AghSc4wZ4AevcHBbCUbcX218IHlIAKDbEr5vm9kME2FmyaMZJjkKFn8!/b&bo=sgTbArIE2wIRFyA!&rf=viewer_4)
 
-- **.vue文件封装处理**
+#### d. .vue文件封装处理
 
 ![image](http://m.qpic.cn/psc?/V13nxsPN3V5ukd/q8Q4MIggA9NuFR1Fl4CvlvTCxgUHkadC95btM.U8mgCVlxvL9DnkVlBiAVaUKXWNRRaNeeswvHIYlsRGKKuV6hoZc0PBeUS0CND78nJ.TKA!/b&bo=cgW5AnIFuQIRFyA!&rf=viewer_4)
