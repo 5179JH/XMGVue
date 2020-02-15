@@ -71,8 +71,11 @@ module.exports = {
 			}
     ]
 	},
-	// 引入 vue 的一些配置 打包时没有错误,运行时浏览器出现错误,是因为我们使用的是 runtime-only 版本的 Vue 这里就是修改 并使用 runtime-compiler 版本的vue
+	// resolve 解决文件引用路径问题
 	resolve: {
+		// 解决扩展名问题
+		extensions: ['.js','.css','.vue'],
+		// alias 别名 引入 vue 的一些配置 打包时没有错误,运行时浏览器出现错误,是因为我们使用的是 runtime-only 版本的 Vue 这里就是修改 并使用 runtime-compiler 版本的vue
 		alias: {
 			'vue$': 'vue/dist/vue.esm.js'
 		}
