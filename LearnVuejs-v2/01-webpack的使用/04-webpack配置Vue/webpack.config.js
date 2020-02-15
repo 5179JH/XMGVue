@@ -14,6 +14,7 @@ module.exports = {
 	// css 文件loder配置
 	module: {
     rules: [
+			// css 文件配置 css-loader
       {
 				// 使用正则表达式匹配 css 文件 然后传给下面的loder
 				test: /\.css$/,
@@ -22,6 +23,7 @@ module.exports = {
 				use: [ 'style-loader', 'css-loader' ]
         // use: [ 'css-loader', 'style-loader' ] 使用多个 loder 时,是从右向左读的,所以调换位置不可以
 			},
+			// less 文件配置 less-loader
 			{
 				test: /\.less$/,
 				use: [{
@@ -34,6 +36,7 @@ module.exports = {
 						loader: "less-loader" // compiles Less to CSS
 				}]
 			},
+			// 文件 图片配置 url-loader
 			{
         test: /\.(png|jpg|gif)$/,
         use: [
@@ -48,6 +51,7 @@ module.exports = {
           }
         ]
 			},
+			// js 配置 babel-loader
 			{
 				test: /\.js$/,
 				// include: 包含
@@ -59,9 +63,15 @@ module.exports = {
 						presets: ['es2015']
 					}
 				}
+			},
+			// vue-loader 配置
+			{
+				test: /\.vue$/,
+				use: ['vue-loader']
 			}
     ]
 	},
+	// 引入 vue 的一些配置 打包时没有错误,运行时浏览器出现错误,是因为我们使用的是 runtime-only 版本的 Vue 这里就是修改 并使用 runtime-compiler 版本的vue
 	resolve: {
 		alias: {
 			'vue$': 'vue/dist/vue.esm.js'
