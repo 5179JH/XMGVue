@@ -814,7 +814,7 @@ Learn Vue.js
 
 ![image](http://server.xmyeditor.com/sucai-jpg/20200209/5e4025176577dnwijhvdnhh.jpg)
 
-- 打包错误信息
+- **打包错误信息**
 
 ![image](http://server.xmyeditor.com/sucai-jpg/20200209/5e402517d2823mxhjookjgb.jpg)
 
@@ -860,7 +860,7 @@ Learn Vue.js
 
 ![image](http://server.xmyeditor.com/sucai-jpg/20200213/31e204b0e179993a2eee10a01e2bf5f7.jpg)
 
-### 4. webpack配置Vue
+### 4. webpack配置Vue(vue-loader)
 
 #### a. 引入vue.js
 
@@ -883,3 +883,13 @@ Learn Vue.js
 #### d. .vue文件封装处理
 
 ![image](http://m.qpic.cn/psc?/V13nxsPN3V5ukd/q8Q4MIggA9NuFR1Fl4CvlvTCxgUHkadC95btM.U8mgCVlxvL9DnkVlBiAVaUKXWNRRaNeeswvHIYlsRGKKuV6hoZc0PBeUS0CND78nJ.TKA!/b&bo=cgW5AnIFuQIRFyA!&rf=viewer_4)
+
+### 5. webpack的plugin
+
+#### 1. 认识plugin
+
+![image]()
+
+#### 2. 添加版权的plugin
+
+![image]()
