@@ -1,9 +1,11 @@
 // 导入 nodejs 的 path 模块
 const path = require('path')
-
+// 引入 webpack 模块
 const webpack = require('webpack')
-
+// 引入打包 html 的plugin --- html-webpack-plugin
 const htmlWebpackPlugin = require('html-webpack-plugin')
+// 引入压缩 js 的plugin --- 
+const uglifyjsWebpackPlugin = require('uglifyjs-webpack-plugin')
 
 module.exports = {
 	// 入口文件
@@ -84,10 +86,19 @@ module.exports = {
 			'vue$': 'vue/dist/vue.esm.js'
 		}
 	},
+	// plugin 插件
 	plugins: [
+		// 配置 添加版权的插件 BannerPlugin
 		new webpack.BannerPlugin('最终版权归 5179JH 所有'),
+		// 配置 打包 html 的 plugin
 		new htmlWebpackPlugin({
 			template: 'index.html'
-		})
-	]
+		}),
+		// 配置 压缩 js 的 plugin
+		new uglifyjsWebpackPlugin()
+	],
+	devServer: {
+		contentBase: './dist',
+		inline: true
+	}
 }

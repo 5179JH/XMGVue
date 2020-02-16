@@ -890,10 +890,20 @@ Learn Vue.js
 
 ![image](http://m.qpic.cn/psc?/V13nxsPN3V5ukd/q8Q4MIggA9NuFR1Fl4CvloO3mJ*59BLlc92JW.e4jEz0WOKO1PWAY5zFPp935KVlAViPbbDOKCpNVpVUie.2GVN2*Q9*D1bXzEilaTDehjs!/b&bo=UAU6AlAFOgIRBzA!&rf=viewer_4)
 
-#### 2. 添加版权的plugin
+#### 2. 添加版权的plugin(BannerPlugin)
 
 ![image](http://m.qpic.cn/psc?/V13nxsPN3V5ukd/q8Q4MIggA9NuFR1Fl4CvlulkIchI1vm21UOipvaO.9t3vWm23AIeYf6YHi9bLywpu89VXtWDhMrlWXWkWN3CbREmv80MWd58SP06Keli5Zk!/b&bo=AgOMAgIDjAIRFyA!&rf=viewer_4)
 
-#### 3. 打包 html 的plugin
+#### 3. 打包 html 的plugin(htmlPlugin)
 
 ![image](http://m.qpic.cn/psc?/V13nxsPN3V5ukd/q8Q4MIggA9NuFR1Fl4CvlvGrg**34Cc*FPHiaLVkDMEMxlOM*xYqqlJn*XJ3SeIfNx9DVgLKsBGQhZHUaxIcYU.bDEaBNZe.7DAOmN.7oJk!/b&bo=fQXRAn0F0QIRFyA!&rf=viewer_4)
+
+#### 4. 压缩 js 的plugin(uglifyjsPlugin)
+
+![image](http://m.qpic.cn/psc?/V13nxsPN3V5ukd/q8Q4MIggA9NuFR1Fl4CvloaXGAjtJzkg7K3UrsDrtm2XnH9oBYi2zygZqVleIUwD7v7A5LqvK99aosk6BRBI8V3yzBYeMWo*ijCfXEmgROg!/b&bo=xgTCAsYEwgIRFyA!&rf=viewer_4)
+
+### 6. 使用 webpack 搭建本地服务器
+
+![image](http://m.qpic.cn/psc?/V13nxsPN3V5ukd/q8Q4MIggA9NuFR1Fl4CvlmwbgkBWUrWvWUuMdyOYpAyqsU.*5xpcK3pPq160cYAI9wmHiKweY.UtytqSbyr03oj3XAHGc1XuwIMSBDzKvhc!/b&bo=XAXSAlwF0gIRFyA!&rf=viewer_4)
+
+#### 1. webpack 配置分离
