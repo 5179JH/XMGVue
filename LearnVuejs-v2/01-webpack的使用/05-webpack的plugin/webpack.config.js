@@ -3,6 +3,8 @@ const path = require('path')
 
 const webpack = require('webpack')
 
+const htmlWebpackPlugin = require('html-webpack-plugin')
+
 module.exports = {
 	// 入口文件
 	entry: './src/main.js',
@@ -11,7 +13,7 @@ module.exports = {
 		// 动态的获取路径
 		path: path.resolve(__dirname, 'dist'),
 		filename: 'bundle.js',
-		publicPath: 'dist/'
+		// publicPath: 'dist/'
 	},
 	// css 文件loder配置
 	module: {
@@ -83,6 +85,9 @@ module.exports = {
 		}
 	},
 	plugins: [
-		new webpack.BannerPlugin('最终版权归 5179JH 所有')
+		new webpack.BannerPlugin('最终版权归 5179JH 所有'),
+		new htmlWebpackPlugin({
+			template: 'index.html'
+		})
 	]
 }

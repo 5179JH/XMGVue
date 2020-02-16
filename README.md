@@ -888,8 +888,12 @@ Learn Vue.js
 
 #### 1. 认识plugin
 
-![image]()
+![image](http://m.qpic.cn/psc?/V13nxsPN3V5ukd/q8Q4MIggA9NuFR1Fl4CvloO3mJ*59BLlc92JW.e4jEz0WOKO1PWAY5zFPp935KVlAViPbbDOKCpNVpVUie.2GVN2*Q9*D1bXzEilaTDehjs!/b&bo=UAU6AlAFOgIRBzA!&rf=viewer_4)
 
 #### 2. 添加版权的plugin
 
-![image]()
+![image](http://m.qpic.cn/psc?/V13nxsPN3V5ukd/q8Q4MIggA9NuFR1Fl4CvlulkIchI1vm21UOipvaO.9t3vWm23AIeYf6YHi9bLywpu89VXtWDhMrlWXWkWN3CbREmv80MWd58SP06Keli5Zk!/b&bo=AgOMAgIDjAIRFyA!&rf=viewer_4)
+
+#### 3. 打包 html 的plugin
+
+![image](http://m.qpic.cn/psc?/V13nxsPN3V5ukd/q8Q4MIggA9NuFR1Fl4CvlvGrg**34Cc*FPHiaLVkDMEMxlOM*xYqqlJn*XJ3SeIfNx9DVgLKsBGQhZHUaxIcYU.bDEaBNZe.7DAOmN.7oJk!/b&bo=fQXRAn0F0QIRFyA!&rf=viewer_4)
