@@ -886,19 +886,19 @@ Learn Vue.js
 
 ### 5. webpack的plugin
 
-#### 1. 认识plugin
+#### a. 认识plugin
 
 ![image](http://m.qpic.cn/psc?/V13nxsPN3V5ukd/q8Q4MIggA9NuFR1Fl4CvloO3mJ*59BLlc92JW.e4jEz0WOKO1PWAY5zFPp935KVlAViPbbDOKCpNVpVUie.2GVN2*Q9*D1bXzEilaTDehjs!/b&bo=UAU6AlAFOgIRBzA!&rf=viewer_4)
 
-#### 2. 添加版权的plugin(BannerPlugin)
+#### b. 添加版权的plugin(BannerPlugin)
 
 ![image](http://m.qpic.cn/psc?/V13nxsPN3V5ukd/q8Q4MIggA9NuFR1Fl4CvlulkIchI1vm21UOipvaO.9t3vWm23AIeYf6YHi9bLywpu89VXtWDhMrlWXWkWN3CbREmv80MWd58SP06Keli5Zk!/b&bo=AgOMAgIDjAIRFyA!&rf=viewer_4)
 
-#### 3. 打包 html 的plugin(htmlPlugin)
+#### c. 打包 html 的plugin(htmlPlugin)
 
 ![image](http://m.qpic.cn/psc?/V13nxsPN3V5ukd/q8Q4MIggA9NuFR1Fl4CvlvGrg**34Cc*FPHiaLVkDMEMxlOM*xYqqlJn*XJ3SeIfNx9DVgLKsBGQhZHUaxIcYU.bDEaBNZe.7DAOmN.7oJk!/b&bo=fQXRAn0F0QIRFyA!&rf=viewer_4)
 
-#### 4. 压缩 js 的plugin(uglifyjsPlugin)
+#### d. 压缩 js 的plugin(uglifyjsPlugin)
 
 ![image](http://m.qpic.cn/psc?/V13nxsPN3V5ukd/q8Q4MIggA9NuFR1Fl4CvloaXGAjtJzkg7K3UrsDrtm2XnH9oBYi2zygZqVleIUwD7v7A5LqvK99aosk6BRBI8V3yzBYeMWo*ijCfXEmgROg!/b&bo=xgTCAsYEwgIRFyA!&rf=viewer_4)
 
@@ -906,4 +906,28 @@ Learn Vue.js
 
 ![image](http://m.qpic.cn/psc?/V13nxsPN3V5ukd/q8Q4MIggA9NuFR1Fl4CvlmwbgkBWUrWvWUuMdyOYpAyqsU.*5xpcK3pPq160cYAI9wmHiKweY.UtytqSbyr03oj3XAHGc1XuwIMSBDzKvhc!/b&bo=XAXSAlwF0gIRFyA!&rf=viewer_4)
 
-#### 1. webpack 配置分离
+#### a. webpack 配置分离
+
+## Vue CLI
+
+### 1. 什么是Vue CLI
+
+![image](http://m.qpic.cn/psc?/V13nxsPN3V5ukd/q8Q4MIggA9NuFR1Fl4CvlpRaX5vx4QFIQhGm7XqAHXsTfox9KsOwhpUQblcL6KECDOIBYT9uq2o1iW5c91pO2YcPQnWII4dmzkeIiFaapWc!/b&bo=fgU5An4FOQIRBzA!&rf=viewer_4)
+
+### 2. Vue CLI 使用前提
+
+#### a. Node
+
+![image](http://m.qpic.cn/psc?/V13nxsPN3V5ukd/q8Q4MIggA9NuFR1Fl4CvlipHI9dDkk3.9XO5QN4k2bO7himSiKKDs.KnCvtVWdsC0cnBt3qKaRDct7bWhd08nsCHIZspMCh4GRn2rh*3ENU!/b&bo=cwZhA3MGYQMRFyA!&rf=viewer_4)
+
+#### b. Webpack
+
+![image](http://m.qpic.cn/psc?/V13nxsPN3V5ukd/q8Q4MIggA9NuFR1Fl4CvlugKTV2ew90VUQ5huJ4Fsj5FhR8WPiNrV8pGn8Y*8cM6xiBnYk3aLPsPrvaWRzNiJV0l0oIABs7ide0l58tY9nU!/b&bo=rARqA6wEagMRFyA!&rf=viewer_4)
+
+### 3. Vue CLI 的使用
+
+![image](http://m.qpic.cn/psc?/V13nxsPN3V5ukd/q8Q4MIggA9NuFR1Fl4CvlgCEpH.Z3erQ29a2kkBB*mS6neJC2Re*viMsfQ4YL7sJbaCvU3ar2C12v6bEs6F16ADYLxbzstyb1WPjNGsiWgk!/b&bo=fQU7A30FOwMRFyA!&rf=viewer_4)
+
+### 4. Vue CLI2 详解
+
+![image](http://m.qpic.cn/psc?/V13nxsPN3V5ukd/q8Q4MIggA9NuFR1Fl4CvlqOXI7y1fQYYR8KwxX928E7OgHfHeIaGspQV.dWFrzhuM3DGgKXF*KYx5o66ESAUFn8BI1lHxdLoTRRYfQBwXm0!/b&bo=sQX5ArEF.QIRFyA!&rf=viewer_4)
