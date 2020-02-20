@@ -976,7 +976,7 @@ Vue中的模板如何最终渲染成真实DOM。
 
 ![image](https://img-blog.csdnimg.cn/20200114005707195.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d1eXhpbnU=,size_16,color_FFFFFF,t_70)
 
-### Vue CLI3
+### Vue CLI37
 
 ![image](https://img-blog.csdnimg.cn/20200114005721221.png)
 
@@ -986,4 +986,14 @@ vue-cli 3 的设计原则是“0配置”，移除的配置文件根目录下的
 vue-cli 3 提供了 vue ui 命令，提供了可视化配置，更加人性化
 移除了static文件夹，新增了public文件夹，并且index.html移动到public中
 
+#### a. 安装
+
 ![image](https://img-blog.csdnimg.cn/20200114005804843.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d1eXhpbnU=,size_16,color_FFFFFF,t_70)
+
+#### b. 目录结构详解
+
+![image](https://img-blog.csdnimg.cn/20200114005815488.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d1eXhpbnU=,size_16,color_FFFFFF,t_70)
+
+#### b. 配置去呢了?
+
+![image](https://img-blog.csdnimg.cn/20200114005815488.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d1eXhpbnU=,size_16,color_FFFFFF,t_70)
