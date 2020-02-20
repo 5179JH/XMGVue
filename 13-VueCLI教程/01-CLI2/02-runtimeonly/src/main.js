@@ -10,4 +10,6 @@ new Vue({
   render: h => h(App)
 })
 
+// 那么 .vue 文件中的 template 是由谁处理的呢?
+// 是由 vue-template-compiler 处理的
 // render -> vdom -> UI

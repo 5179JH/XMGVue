@@ -930,4 +930,60 @@ Learn Vue.js
 
 ### 4. Vue CLI2 详解
 
-![image](http://m.qpic.cn/psc?/V13nxsPN3V5ukd/q8Q4MIggA9NuFR1Fl4CvlqOXI7y1fQYYR8KwxX928E7OgHfHeIaGspQV.dWFrzhuM3DGgKXF*KYx5o66ESAUFn8BI1lHxdLoTRRYfQBwXm0!/b&bo=sQX5ArEF.QIRFyA!&rf=viewer_4)
+#### a.安装
+
+![image](https://img-blog.csdnimg.cn/20200114005304365.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d1eXhpbnU=,size_16,color_FFFFFF,t_70)
+
+#### b.目录结构详解
+
+![image](https://img-blog.csdnimg.cn/20200114005309563.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d1eXhpbnU=,size_16,color_FFFFFF,t_70)
+
+#### c.Runtime-Compiler和Runtime-only的区别
+
+![image](https://img-blog.csdnimg.cn/20200114005327311.png)
+![image](https://img-blog.csdnimg.cn/20200114005335845.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d1eXhpbnU=,size_16,color_FFFFFF,t_70)
+
+- 简单总结
+	如果在之后的开发中，你依然使用template，就需要选择Runtime-Compiler
+	如果你之后的开发中，使用的是.vue文件夹开发，那么可以选择Runtime-only
+#### d.render和template
+
+- Runtime-Compiler 和 Runtime-only
+
+![image](https://img-blog.csdnimg.cn/20200114005503155.png)
+为什么存在这样的差异呢？
+我们需要先理解Vue应用程序是如何运行起来的。
+Vue中的模板如何最终渲染成真实DOM。
+我们来看下面的一幅图。
+
+#### d.Vue程序运行过程
+
+![image](https://img-blog.csdnimg.cn/20200114005526596.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d1eXhpbnU=,size_16,color_FFFFFF,t_70)
+
+#### e.render函数的使用
+
+![image](https://img-blog.csdnimg.cn/20200114005636594.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d1eXhpbnU=,size_16,color_FFFFFF,t_70)
+
+#### f.npm run build
+
+![image](https://img-blog.csdnimg.cn/20200114005646791.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d1eXhpbnU=,size_16,color_FFFFFF,t_70)
+
+#### g.npm run dev
+
+![image](https://img-blog.csdnimg.cn/20200114005659123.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d1eXhpbnU=,size_16,color_FFFFFF,t_70)
+
+#### h.修改配置：webpack.base.conf.js起别名
+
+![image](https://img-blog.csdnimg.cn/20200114005707195.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d1eXhpbnU=,size_16,color_FFFFFF,t_70)
+
+### Vue CLI3
+
+![image](https://img-blog.csdnimg.cn/20200114005721221.png)
+
+vue-cli 3 与 2 版本有很大区别
+vue-cli 3 是基于 webpack 4 打造，vue-cli 2 还是 webapck 3
+vue-cli 3 的设计原则是“0配置”，移除的配置文件根目录下的，build和config等目录
+vue-cli 3 提供了 vue ui 命令，提供了可视化配置，更加人性化
+移除了static文件夹，新增了public文件夹，并且index.html移动到public中
+
+![image](https://img-blog.csdnimg.cn/20200114005804843.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d1eXhpbnU=,size_16,color_FFFFFF,t_70)

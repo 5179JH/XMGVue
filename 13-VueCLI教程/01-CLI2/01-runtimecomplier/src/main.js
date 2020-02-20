@@ -7,10 +7,15 @@ Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 new Vue({
-  // el: '#app',
+  el: '#app',
   // components: { App },
   // template: '<App/>'
-  render: function (h) { return h(App)}
+  render: function (createElement) { 
+    // 1. createElement('标签',{标签的属性},['标签的内容'])
+    // return createElement('h2',{class:'boxs'},['Hello world',createElement('button',['按钮'])])
+    // 2.传入组件对象
+    return createElement(App)
+  }
 })
 
 // runtime-compiler(v1)
