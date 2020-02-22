@@ -1257,3 +1257,32 @@ SEO友好度：差，大量使用ajax，多数浏览器不能抓取ajax数据。
 
 	Vue.use(VueRouter)
 ```
+
+#### a.创践 router 实例
+
+![image](https://img-blog.csdnimg.cn/20200114011715770.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d1eXhpbnU=,size_16,color_FFFFFF,t_70)
+
+#### b.挂载到 Vue 实例中去
+
+![image](https://img-blog.csdnimg.cn/20200114011726313.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d1eXhpbnU=,size_16,color_FFFFFF,t_70)
+
+#### c.步骤一:创践路由组件
+
+![image](https://img-blog.csdnimg.cn/20200114012115544.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d1eXhpbnU=,size_16,color_FFFFFF,t_70)
+
+#### d.步骤二:配置组件和路径的映射关系
+
+![image](https://img-blog.csdnimg.cn/20200114012124847.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d1eXhpbnU=,size_16,color_FFFFFF,t_70)
+
+#### e.步骤三：使用路由
+
+![image](https://img-blog.csdnimg.cn/20200114012134751.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d1eXhpbnU=,size_16,color_FFFFFF,t_70)
+
+- <router-link>: 该标签是一个vue-router中已经内置的组件, 它会被渲染成一个<a>标签.
+- <router-view>: 该标签会根据当前的路径, 动态渲染出不同的组件.
+- 网页的其他内容, 比如顶部的标题/导航, 或者底部的一些版权信息等会和<router-view>处于同一个等级.
+- 在路由切换时, 切换的是<router-view>挂载的组件, 其他内容不会发生改变.
+
+#### f.最终效果如下
+
+![image](https://img-blog.csdnimg.cn/20200114012147239.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d1eXhpbnU=,size_16,color_FFFFFF,t_70)

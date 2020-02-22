@@ -11,7 +11,7 @@ Vue.use(VueRouter)
 // 2.创建 VueRouter 对象
 const routes = [
   {
-    path: '/Home',
+    path: '/home',
     component: Home
   },
   {
