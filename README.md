@@ -976,7 +976,7 @@ Vue中的模板如何最终渲染成真实DOM。
 
 ![image](https://img-blog.csdnimg.cn/20200114005707195.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d1eXhpbnU=,size_16,color_FFFFFF,t_70)
 
-### Vue CLI37
+### 5-Vue CLI3
 
 ![image](https://img-blog.csdnimg.cn/20200114005721221.png)
 
@@ -997,3 +997,263 @@ vue-cli 3 提供了 vue ui 命令，提供了可视化配置，更加人性化
 #### b. 配置去呢了?
 
 ![image](https://img-blog.csdnimg.cn/20200114005815488.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d1eXhpbnU=,size_16,color_FFFFFF,t_70)
+
+## 14-Vue-router
+
+### 1. 认识路由
+
+说起路由你想起了什么？
++ 路由是一个网络工程里面的术语。
++ 路由（routing）就是通过互联的网络把信息从源地址传输到目的地址的活动. — 维基百科
+
++ 在生活中, 我们有没有听说过路由的概念呢? 当然了, 路由器嘛.
++ 路由器是做什么的? 你有想过吗?
+
++ 路由器提供了两种机制: 路由和转送.
+
+	- 路由是决定数据包从来源到目的地的路径.
+	- 转送将输入端的数据转移到合适的输出端.
+
++ 路由中有一个非常重要的概念叫路由表.
+
+	- 路由表本质上就是一个映射表, 决定了数据包的指向.
+
+#### a.后端路由阶段
+
+- 早期的网站开发整个HTML页面是由服务器来渲染的.
+
+	+ 服务器直接生产渲染好对应的HTML页面, 返回给客户端进行展示.
+
+- 但是, 一个网站, 这么多页面服务器如何处理呢?
+
+	+ 一个页面有自己对应的网址, 也就是URL.
+
+	+ URL会发送到服务器, 服务器会通过正则对该URL进行匹配, 并且最后交给一个Controller进行处理.
+
+	+ Controller进行各种处理, 最终生成HTML或者数据, 返回给前端.
+
+	+ 这就完成了一个IO操作.
+
+- 上面的这种操作, 就是后端路由.
+
+	+ 当我们页面中需要请求不同的路径内容时, 交给服务器来进行处理, 服务器渲染好整个页面, 并且将页面返回给客户顿.
+
+	+ 这种情况下渲染好的页面, 不需要单独加载任何的js和css, 可以直接交给浏览器展示, 这样也有利于SEO的优化.
+
+- 后端路由的缺点:
+
+	+ 一种情况是整个页面的模块由后端人员来编写和维护的.
+
+	+ 另一种情况是前端开发人员如果要开发页面, 需要通过PHP和Java等语言来编写页面代码.
+
+	+ 而且通常情况下HTML代码和数据以及对应的逻辑会混在一起, 编写和维护都是非常糟糕的事情.
+
+- **后端路由图解**
+![image](https://img-blog.csdnimg.cn/2020011401113413.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d1eXhpbnU=,size_16,color_FFFFFF,t_70)
+
+#### b.前端路由阶段
+
+- 前后端分离阶段：
+
+	+ 随着Ajax的出现, 有了前后端分离的开发模式.
+
+	+ 后端只提供API来返回数据, 前端通过Ajax获取数据, 并且可以通过JavaScript将数据渲染到页面中.
+
+	+ 这样做最大的优点就是前后端责任的清晰, 后端专注于数据上, 前端专注于交互和可视化上.
+
+	+ 并且当移动端(iOS/Android)出现后, 后端不需要进行任何处理, 依然使用之前的一套API即可.
+
+	+ 目前很多的网站依然采用这种模式开发.
+
+- **前端路由中URL和组件的关系**
+![image](https://img-blog.csdnimg.cn/20200114011147381.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d1eXhpbnU=,size_16,color_FFFFFF,t_70)
+
+- 单页面富应用阶段(SPA simple page web application):
+	+ 其实SPA最主要的特点就是在前后端分离的基础上加了一层前端路由.
+	+ 也就是前端来维护一套路由规则.
+
+- 前端路由的核心是什么呢？
+ + 改变URL，但是页面不进行整体的刷新。
+ + 如何实现呢？
+
+- **SPA页面阶段**
+
+![image](https://img-blog.csdnimg.cn/20200114011527307.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d1eXhpbnU=,size_16,color_FFFFFF,t_70)
+
+#### c.URL的hash
+- URL的hash
+	+ URL的hash也就是锚点(#), 本质上是改变window.location的href属性.
+	+ 我们可以通过直接赋值location.hash来改变href, 但是页面不发生刷新
+
+![image](https://img-blog.csdnimg.cn/202001140112018.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d1eXhpbnU=,size_16,color_FFFFFF,t_70)
+
+#### d.HTML5的history模式
+
+##### 1.pushState
+- history接口是HTML5新增的, 它有五种模式改变URL而不刷新页面.
+	+ history.pushState()
+
+![image](https://img-blog.csdnimg.cn/20200114011248824.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d1eXhpbnU=,size_16,color_FFFFFF,t_70)
+
+##### 2.replaceState
+- history.replaceState()
+
+![image](https://img-blog.csdnimg.cn/20200114011309411.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d1eXhpbnU=,size_16,color_FFFFFF,t_70)
+
+##### 3.go
+- history.go()
+
+![image](https://img-blog.csdnimg.cn/20200114011343651.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d1eXhpbnU=,size_16,color_FFFFFF,t_70)
+
+- 补充说明：
+	+ 上面只演示了三个方法
+	+ 因为 history.back() 等价于 history.go(-1)
+	+ history.forward() 则等价于 history.go(1)
+	+ 这三个接口等同于浏览器界面的前进后退。
+
+
+
+看到这里，你可以自问自答一下，下面这个几个问题。
+
+（1）什么是前端渲染, 什么是后端渲染?
+
+（2）什么是前后端分离?
+
+（3）什么是前端路由, 什么是后端路由?
+
+
+
+（1）什么是前端渲染, 什么是后端渲染?
+
+前端渲染：
+
+指的是后端返回JSON数据，前端利用预先写的html模板，循环读取JSON数据，拼接字符串（es6的模板字符串特性大大减少了拼接字符串的的成本），并插入页面。
+
+好处：网络传输数据量小。不占用服务端运算资源（解析模板），模板在前端（很有可能仅部分在前端），改结构变交互都前端自己来了，改完自己调就行。
+
+坏处：前端耗时较多，对前端工作人员水平要求相对较高。前端代码较多，因为部分以前在后台处理的交互逻辑交给了前端处理。占用少部分客户端运算资源用于解析模板。
+
+后端渲染：
+
+前端请求，后端用后台模板引擎直接生成html，前端接受到数据之后，直接插入页面。
+
+好处：前端耗时少，即减少了首屏时间，模板统一在后端。前端（相对）省事，不占用客户端运算资源（解析模板）
+
+坏处：占用服务器资源。
+
+前端渲染与后端渲染对比：
+
+后端渲染：
+
+页面呈现速度：快，受限于用户的带宽
+流量消耗：少一点点（可以省去前端框架部分的代码）
+可维护性：差（前后端东西放一起，掐架多年，早就在闹分手啦）
+seo友好度：好
+编码效率：低（这个跟不同的团队不同，可能不对）
+
+前端渲染：
+
+页面呈现速度：主要受限于带宽和客户端机器的好坏，优化的好，可以逐步动态展开内容，感觉上会更快一点。
+
+流量消耗：多一点点（一个前端框架大概50KB）当然，有的用后端渲染的项目前端部分也有在用框架。
+
+可维护性：好，前后端分离，各施其职，代码一目明了。
+SEO友好度：差，大量使用ajax，多数浏览器不能抓取ajax数据。
+编码效率：高，前后端各自只做自己擅长的东西，后端最后只输出接口，不用管页面呈现，只要前后端人员能力不错，效率不会低。
+
+（2）什么是前后端分离?
+
+![image](https://img-blog.csdnimg.cn/20200114011614788.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d1eXhpbnU=,size_16,color_FFFFFF,t_70)
+
+现在 Web 服务器不再处理任何业务，它接收到请求后，经过转换，发送给各个相关后端服务器，将各个后端服务器返回的，处理过的业务数据填入 HTML 模板，最后发送给浏览器。Web 服务器和后端服务器间，可以选用任何你觉得合适的通信手段，可以是 REST，可以是 RPC，选用什么样的通信手段，这是另一个议题了。
+
+这样，前端人员和后端人员约定好接口后，前端人员彻底不用再关心业务处理是怎么回事，他只需要把界面做好就可以了，后端人员也不用再关系前端界面是什么样的，他只需要做好业务逻辑处理即可。服务的切离，代码管理，服务部署也都独立出来分别管理，系统的灵活性也获得了极大的提升。
+
+**注意，这不是个微服务架构，那是另外一个议题了**
+
+总结，任何系统架构设计，实际上是对组织结构在系统上进行映射，前后端分离，就是在对前端开发人员和后端开发人员的工作进行解耦，尽量减少他她们之间的交流成本，帮助他她们更能专注于自己擅长的工作。
+
+最后是几个常见误解的说明：
+
+1、前后端分离是说浏览器和后端服务分离吗？
+
+不是，前后端分离里的前端不是浏览器，指的是生成 HTML 的那个服务，它可以是一个仅仅生成 HTML 的 Web 服务器，也可以是在浏览器中通过 JS 动态生成 HTML 的 单页应用。实践中，有实力的团队往往在实现前后端分离里时，前端选用 node 服务器，后端选用 C#、Java 等（排名不分先后）
+
+2、前后端分离是种技术吗？
+
+不是，前后端分离是种架构模式，或者说是最佳实践。所谓模式就是大家这么用了觉得不错，你可以直接抄来用的固定套路。
+
+3、前后端分离是最佳实践吗？
+
+看你团队和项目的情况，如果是短平快的小项目，真的没必要。如果是面向简历开发，那绝对在任何时候都应该使用前后端分离这种架构。
+
+（3）什么是前端路由, 什么是后端路由?
+
+1、什么是前端路由？
+
+很重要的一点是页面不刷新，前端路由就是把不同路由对应不同的内容或页面的任务交给前端来做，每跳转到不同的URL都是使用前端的锚点路由. 随着（SPA）单页应用的不断普及，前后端开发分离，目前项目基本都使用前端路由，在项目使用期间页面不会重新加载。
+
+2、什么是后端路由？
+
+​ 浏览器在地址栏中切换不同的url时，每次都向后台服务器发出请求，服务器响应请求，在后台拼接html文件传给前端显示, 返回不同的页面, 意味着浏览器会刷新页面，网速慢的话说不定屏幕全白再有新内容。后端路由的另外一个极大的问题就是 前后端不分离。
+
+​ 优点：分担了前端的压力，html和数据的拼接都是由服务器完成。
+
+​ 缺点：当项目十分庞大时，加大了服务器端的压力，同时在浏览器端不能输入制定的url路径进行指定模块的访问。另外一个就是如果当前网速过慢，那将会延迟页面的加载，对用户体验不是很友好。
+
+3，什么时候使用前端路由？
+
+​ 在单页面应用，大部分页面结构不变，只改变部分内容的使用
+
+4，前端路由有什么优点和缺点？
+
+**优点:**
+
+ 1.用户体验好，和后台网速没有关系，不需要每次都从服务器全部获取，快速展现给用户
+ 
+ 2.可以再浏览器中输入指定想要访问的url路径地址。
+ 
+ 3.实现了前后端的分离，方便开发。有很多框架都带有路由功能模块。
+
+**缺点:**
+
+​ 1.使用浏览器的前进，后退键的时候会重新发送请求，没有合理地利用缓存
+
+​ 2.单页面无法记住之前滚动的位置，无法在前进，后退的时候记住滚动的位置
+
+### 2.认识vue-router
+
+- 目前前端流行的三大框架, 都有自己的路由实现:
+	+ ngular的ngRouter
+	+ eact的ReactRouter
+	+ ue的vue-router
+
+- 当然, 我们的重点是vue-router
+	+ vue-router是Vue.js官方的路由插件，它和vue.js是深度集成的，适合用于构建单页面应用。
+	+ 我们可以访问其官方网站对其进行学习: https://router.vuejs.org/zh/
+- vue-router是基于路由和组件的
+	+ 路由用于设定访问路径, 将路径和组件映射起来.
+	+ 在vue-router的单页面应用中, 页面的路径的改变就是组件的切换.
+
+### 3.安装和使用 vue-router
+
+- 因为我们已经学习了webpack, 后续开发中我们主要是通过工程化的方式进行开发的.
+	+ 所以在后续, 我们直接使用npm来安装路由即可.
+	+ 步骤一: 安装vue-router
+		- npm install vue-router --save
+	+ 步骤二: 在模块化工程中使用它(因为是一个插件, 所以可以通过Vue.use()来安装路由功能)
+		- 第一步：导入路由对象，并且调用 Vue.use(VueRouter)
+		- 第二步：创建路由实例，并且传入路由映射配置
+		- 第三步：在Vue实例中挂载创建的路由实例
+
+- 使用vue-router的步骤:
+	+ 第一步: 创建路由组件
+	+ 第二步: 配置路由映射: 组件和路径映射关系
+	+ 第三步: 使用路由: 通过<router-link>和<router-view>
+
+```JavaScript
+	import Vue from ‘vue’
+	import VueRouter from ‘vue-router’
+
+	Vue.use(VueRouter)
+```
