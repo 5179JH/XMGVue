@@ -908,7 +908,7 @@ Learn Vue.js
 
 #### a. webpack 配置分离
 
-## Vue CLI
+## 13-Vue CLI
 
 ### 1. 什么是Vue CLI
 
@@ -1195,31 +1195,31 @@ SEO友好度：差，大量使用ajax，多数浏览器不能抓取ajax数据。
 
 2、什么是后端路由？
 
-​ 浏览器在地址栏中切换不同的url时，每次都向后台服务器发出请求，服务器响应请求，在后台拼接html文件传给前端显示, 返回不同的页面, 意味着浏览器会刷新页面，网速慢的话说不定屏幕全白再有新内容。后端路由的另外一个极大的问题就是 前后端不分离。
+ 浏览器在地址栏中切换不同的url时，每次都向后台服务器发出请求，服务器响应请求，在后台拼接html文件传给前端显示, 返回不同的页面, 意味着浏览器会刷新页面，网速慢的话说不定屏幕全白再有新内容。后端路由的另外一个极大的问题就是 前后端不分离。
 
-​ 优点：分担了前端的压力，html和数据的拼接都是由服务器完成。
+ 优点：分担了前端的压力，html和数据的拼接都是由服务器完成。
 
-​ 缺点：当项目十分庞大时，加大了服务器端的压力，同时在浏览器端不能输入制定的url路径进行指定模块的访问。另外一个就是如果当前网速过慢，那将会延迟页面的加载，对用户体验不是很友好。
+ 缺点：当项目十分庞大时，加大了服务器端的压力，同时在浏览器端不能输入制定的url路径进行指定模块的访问。另外一个就是如果当前网速过慢，那将会延迟页面的加载，对用户体验不是很友好。
 
 3，什么时候使用前端路由？
 
-​ 在单页面应用，大部分页面结构不变，只改变部分内容的使用
+ 在单页面应用，大部分页面结构不变，只改变部分内容的使用
 
 4，前端路由有什么优点和缺点？
 
 **优点:**
 
  1.用户体验好，和后台网速没有关系，不需要每次都从服务器全部获取，快速展现给用户
- 
+
  2.可以再浏览器中输入指定想要访问的url路径地址。
- 
+
  3.实现了前后端的分离，方便开发。有很多框架都带有路由功能模块。
 
 **缺点:**
 
-​ 1.使用浏览器的前进，后退键的时候会重新发送请求，没有合理地利用缓存
+ 1.使用浏览器的前进，后退键的时候会重新发送请求，没有合理地利用缓存
 
-​ 2.单页面无法记住之前滚动的位置，无法在前进，后退的时候记住滚动的位置
+ 2.单页面无法记住之前滚动的位置，无法在前进，后退的时候记住滚动的位置
 
 ### 2.认识vue-router
 
@@ -1286,3 +1286,65 @@ SEO友好度：差，大量使用ajax，多数浏览器不能抓取ajax数据。
 #### f.最终效果如下
 
 ![image](https://img-blog.csdnimg.cn/20200114012147239.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d1eXhpbnU=,size_16,color_FFFFFF,t_70)
+
+#### g.细节处理(路由的默认路径)
+
+- 我们这里还有一个不太好的实现:
+	+ 默认情况下, 进入网站的首页, 我们希望<router-view>渲染首页的内容.
+	+ 但是我们的实现中, 默认没有显示首页组件, 必须让用户点击才可以.
+- 如何可以让路径默认跳到到首页, 并且<router-view>渲染首页组件呢?
+	+ 非常简单, 我们只需要配置多配置一个映射就可以了.
+
+![image](https://img-blog.csdnimg.cn/20200114012159536.png)
+
+- 配置解析:
+	+ 我们在routes中又配置了一个映射.
+	+ path配置的是根路径: /
+	+ redirect是重定向, 也就是我们将根路径重定向到/home的路径下, 这样就可以得到我们想要的结果了.
+
+#### h.HTML5的History模式
+
+- 我们前面说过改变路径的方式有两种:
+	+ URL的hash
+	+ HTML5的history
+	+ 默认情况下, 路径的改变使用的URL的hash.
+- 如果希望使用HTML5的history模式, 非常简单, 进行如下配置即可:
+
+![image](https://img-blog.csdnimg.cn/20200114012246696.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d1eXhpbnU=,size_16,color_FFFFFF,t_70)
+
+![image](https://img-blog.csdnimg.cn/20200114012255706.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d1eXhpbnU=,size_16,color_FFFFFF,t_70)
+
+#### i.router-link补充
+
+- 在前面的`<router-link>`中, 我们只是使用了一个属性: to, 用于指定跳转的路径.
+
+- `<router-link>`还有一些**其他属性**:`<router-link to='/home' tag='li'>`
+	+ **tag**: tag可以指定`<router-link>`之后渲染成什么组件, 比如上面的代码会被渲染成一个`<li>`元素, 而不是`<a>`
+	+ **replace**: replace不会留下history记录, 所以指定replace的情况下, 后退键返回不能返回到上一个页面中
+	+ **active-class**: 当`<router-link>`对应的路由匹配成功时, 会自动给当前元素设置一个router-link-active的class, 设置active-class可以修改默认的名称.
+		- 在进行高亮显示的导航菜单或者底部tabbar时, 会使用到该类.
+		- 但是通常不会修改类的属性, 会直接使用默认的router-link-active即可.
+
+![image](https://img-blog.csdnimg.cn/20200114012307109.png)
+
+##### <1> 修改 linkActiveClass
+
+- 该class具体的名称也可以通过router实例的属性进行修改
+
+![image](https://img-blog.csdnimg.cn/2020011401231285.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d1eXhpbnU=,size_16,color_FFFFFF,t_70)
+
+##### <2>路由代码跳转
+
+- 有时候, 页面的跳转可能需要执行对应的JavaScript代码, 这个时候, 就可以使用第二种跳转方式了
+- 比如, 我们将代码修改如下:
+
+![image](https://img-blog.csdnimg.cn/20200114012400464.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d1eXhpbnU=,size_16,color_FFFFFF,t_70)
+
+### 4.动态路由
+
+- 在某些情况下，一个页面的path路径可能是不确定的，比如我们进入用户界面时，希望是如下的路径：
+	+ /user/aaaa或/user/bbbb
+	+ 除了有前面的/user之外，后面还跟上了用户的ID
+	+ 这种path和Component的匹配关系，我们称之为动态路由(也是路由传递数据的一种方式)。
+
+	![image](https://img-blog.csdnimg.cn/20200114012420903.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d1eXhpbnU=,size_16,color_FFFFFF,t_70)
