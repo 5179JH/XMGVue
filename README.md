@@ -1347,4 +1347,117 @@ SEO友好度：差，大量使用ajax，多数浏览器不能抓取ajax数据。
 	+ 除了有前面的/user之外，后面还跟上了用户的ID
 	+ 这种path和Component的匹配关系，我们称之为动态路由(也是路由传递数据的一种方式)。
 
-	![image](https://img-blog.csdnimg.cn/20200114012420903.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d1eXhpbnU=,size_16,color_FFFFFF,t_70)
+![image](https://img-blog.csdnimg.cn/20200114012420903.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d1eXhpbnU=,size_16,color_FFFFFF,t_70)
+
+### 5.路由的懒加载
+
+#### a.认识路由的懒加载
+
+- 官方给出了解释:
+	+ 当打包构建应用时，Javascript 包会变得非常大，影响页面加载。
+	+ 如果我们能把不同路由对应的组件分割成不同的代码块，然后当路由被访问的时候才加载对应组件，这样就更加高效了
+
+- 官方在说什么呢?
+	+ 首先, 我们知道路由中通常会定义很多不同的页面.
+	+ 这个页面最后被打包在哪里呢? 一般情况下, 是放在一个js文件中.
+	+ 但是, 页面这么多放在一个js文件中, 必然会造成这个页面非常的大.
+	+ 如果我们一次性从服务器请求下来这个页面, 可能需要花费一定的时间, 甚至用户的电脑上还出现了短暂空白的情况.
+	+ 如何避免这种情况呢? 使用路由懒加载就可以了.
+
+- 路由懒加载做了什么?
+	+ 路由懒加载的主要作用就是将路由对应的组件打包成一个个的js代码块.
+	+ 只有在这个路由被访问到的时候, 才加载对应的组件
+
+#### b.路由懒加载的效果
+
+![image](https://img-blog.csdnimg.cn/20200114012456983.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d1eXhpbnU=,size_16,color_FFFFFF,t_70)
+
+#### c.懒加载的方式
+
+##### <1> 结合Vue的异步组件和Webpack的代码分析.
+```javascript
+const Home = resolve => { require.ensure(['../components/Home.vue'], () => { resolve(require('../components/Home.vue')) })};
+```
+
+##### <2> AMD写法.
+```javascript
+const About = resolve => require(['../components/About.vue'], resolve);
+```
+
+##### <3> 在ES6中, 我们可以有更加简单的写法来组织Vue异步组件和Webpack的代码分割.
+```javascript
+const Home = () => import('../components/Home.vue')
+```
+
+### 6.路由嵌套
+
+#### a.认识路由嵌套
+
+- 嵌套路由是一个很常见的功能
+	+ 比如在home页面中, 我们希望通过/home/news和/home/message访问一些内容.
+	+ 一个路径映射一个组件, 访问这两个路径也会分别渲染两个组件.
+- 路径和组件的关系如下:
+
+![image](https://img-blog.csdnimg.cn/20200114012509853.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d1eXhpbnU=,size_16,color_FFFFFF,t_70)
+
+- 实现嵌套路由有两个步骤:
+
+	+ 创建对应的子组件, 并且在路由映射中配置对应的子路由.
+	+ 在组件内部使用< router-view>标签.
+
+#### b.嵌套路由实现
+
+![image](https://img-blog.csdnimg.cn/20200114012516270.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d1eXhpbnU=,size_16,color_FFFFFF,t_70)
+
+#### c.嵌套默认路径
+
+- 嵌套路由也可以配置默认的路径, 配置方式如下:
+
+![image](https://img-blog.csdnimg.cn/20200114012532232.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d1eXhpbnU=,size_16,color_FFFFFF,t_70ss)
+
+### 7.传递参数
+
+#### a.准备工作
+
+- 为了演示传递参数, 我们这里再创建一个组件, 并且将其配置好
+	+ 第一步: 创建新的组件Profile.vue
+	+ 第二步: 配置路由映射
+	+ 第三步: 添加跳转的< router-link>
+
+![image](https://img-blog.csdnimg.cn/20200114012548317.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d1eXhpbnU=,size_16,color_FFFFFF,t_70)
+
+![image](https://img-blog.csdnimg.cn/20200114012554719.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d1eXhpbnU=,size_16,color_FFFFFF,t_70)
+
+#### b.传递参数的方式
+
+> url的组成:
+协议://主机:端口/路径?查询
+scheme://host:port/path?query#fragement
+
+- 传递参数主要有两种类型: params和query
+- params的类型:
+
+	+ 配置路由格式: /router/:id
+	+ 传递的方式: 在path后面跟上对应的值
+	+ 传递后形成的路径: /router/123, /router/abc
+- query的类型:
+
+	+ 配置路由格式: /router, 也就是普通配置
+	+ 传递的方式: 对象中使用query的key作为传递方式
+	+ 传递后形成的路径: /router?id=123, /router?id=abc
+- 如何使用它们呢? 也有两种方式: <router-link>的方式和JavaScript代码方式
+
+##### <1>传递参数方式一: <router-link>
+
+![image](https://img-blog.csdnimg.cn/20200114012604513.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d1eXhpbnU=,size_16,color_FFFFFF,t_70)
+
+##### <2>传递参数方式二: JavaScript代码、
+
+![image](https://img-blog.csdnimg.cn/20200114013806708.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d1eXhpbnU=,size_16,color_FFFFFF,t_70)
+
+##### <3>获取参数
+
+获取参数通过route对象获取的.在使用了vue−router的应用中，路由对象会被注入每个组件中，赋值为this.route对象获取的.在使用了 vue-router 的应用中，路由对象会被注入每个组件中，赋值为 this.route对象获取的.在使用了vue−router的应用中，路由对象会被注入每个组件中，赋值为this.route ，并且当路由切换时，路由对象会被更新。
+通过$route获取传递的信息如下:
+
+![iamge](https://img-blog.csdnimg.cn/20200114013809125.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d1eXhpbnU=,size_16,color_FFFFFF,t_70)
