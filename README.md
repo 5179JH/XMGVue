@@ -1457,7 +1457,16 @@ scheme://host:port/path?query#fragement
 
 ##### <3>获取参数
 
-获取参数通过route对象获取的.在使用了vue−router的应用中，路由对象会被注入每个组件中，赋值为this.route对象获取的.在使用了 vue-router 的应用中，路由对象会被注入每个组件中，赋值为 this.route对象获取的.在使用了vue−router的应用中，路由对象会被注入每个组件中，赋值为this.route ，并且当路由切换时，路由对象会被更新。
-通过$route获取传递的信息如下:
+- 获取参数通过route对象获取的.在使用了vue−router的应用中，路由对象会被注入每个组件中，赋值为this.route对象获取的.在使用了 vue-router 的应用中，路由对象会被注入每个组件中，赋值为 this.route对象获取的.在使用了vue−router的应用中，路由对象会被注入每个组件中，赋值为this.route ，并且当路由切换时，路由对象会被更新。
+- 通过$route获取传递的信息如下:
 
 ![iamge](https://img-blog.csdnimg.cn/20200114013809125.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d1eXhpbnU=,size_16,color_FFFFFF,t_70)
+
+#### c.route和router是有区别的
+
+- route和router是有区别的
+	+ router为VueRouter实例，想要导航到不同URL，则使用router为VueRouter实例，想要导航到不同URL，则使用router为VueRouter实例，想要导航到不同URL，则使用router.push方法
+	+ $route为当前router跳转对象里面可以获取name、path、query、params等
+
+![iamge](https://img-blog.csdnimg.cn/20200114013825616.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d1eXhpbnU=,size_16,color_FFFFFF,t_70)
+
