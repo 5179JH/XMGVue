@@ -13,8 +13,11 @@
     <router-link :to="'/user/'+userId" tag="button">用户</router-link>
     <!-- <router-link to="/profile" tag="button">档案</router-link> -->
     <router-link :to="{ path: '/profile', query: { name:'JH', age:21, height:183 } }" tag="button">档案</router-link>
-
-    <router-view></router-view>
+    <keep-alive exclude="Profile,User">
+      <router-view>
+        <!-- 所有路径匹配到的视图组件都会被缓存 -->
+      </router-view>
+    </keep-alive>
   </div>
 </template>
 

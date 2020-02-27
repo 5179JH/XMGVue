@@ -1,13 +1,9 @@
 # XMGVue
 Learn Vue.js
 
-**Vue 知识点汇总（上）**
+**[Vue 知识点汇总（上）](https://blog.csdn.net/wuyxinu/article/details/103965753)**
 
-**附案例代码及项目地址 https://blog.csdn.net/wuyxinu/article/details/103965753 **
-
-**Vue 知识点汇总（下）**
-
-**附案例代码及项目地址   https://blog.csdn.net/wuyxinu/article/details/103966175**
+**[Vue 知识点汇总（下）](https://blog.csdn.net/wuyxinu/article/details/103966175)**
 
 ## 10-组件化开发
 
@@ -1470,3 +1466,55 @@ scheme://host:port/path?query#fragement
 
 ![iamge](https://img-blog.csdnimg.cn/20200114013825616.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d1eXhpbnU=,size_16,color_FFFFFF,t_70)
 
+### 8.导航守卫
+
+#### a.为什么使用导航守卫?
+
+- 我们来考虑一个需求: 在一个SPA应用中, 如何改变网页的标题呢?
+- 网页标题是通过
+- 普通的修改方式:
+	+ 我们比较容易想到的修改标题的位置是每一个路由对应的组件.vue文件中.
+	+ 通过mounted声明周期函数, 执行对应的代码进行修改即可.
+	+ 但是当页面比较多时, 这种方式不容易维护(因为需要在多个页面执行类似的代码).
+
+- 有没有更好的办法呢? 使用导航守卫即可.
+- 什么是导航守卫?
+	+ vue-router提供的导航守卫主要用来监听监听路由的进入和离开的.
+	+ vue-router提供了beforeEach和afterEach的钩子函数, 它们会在路由即将改变前和改变后触发.
+
+#### b.导航守卫使用
+
+我们可以利用beforeEach来完成标题的修改.
+首先, 我们可以在钩子当中定义一些标题, 可以利用meta来定义
+其次, 利用导航守卫,修改我们的标题.
+
+![image](https://img-blog.csdnimg.cn/20200114013836104.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d1eXhpbnU=,size_16,color_FFFFFF,t_70)
+
+- 导航钩子的三个参数解析:
+	+ to: 即将要进入的目标的路由对象.
+	+ from: 当前导航即将要离开的路由对象.
+	+ next: 调用该方法后, 才能进入下一个钩子.
+
+#### c.导航守卫补充
+
+更多内容, 可以查看官网进行学习:
+[导航守卫补充](https://router.vuejs.org/zh/guide/advanced/navigation-guards.html#%E8%B7%AF%E7%94%B1%E7%8B%AC%E4%BA%AB%E7%9A%84%E5%AE%88%E5%8D%AB)
+
+### 9.keep-alive遇见vue-router
+
+> keep-alive 是 Vue 内置的一个组件，可以使被包含的组件保留状态，或避免重新渲染。
+
+- 它们有两个非常重要的属性:
+	+ include - 字符串或正则表达，只有匹配的组件会被缓存
+	+ exclude - 字符串或正则表达式，任何匹配的组件都不会被缓存
+	+ router-view 也是一个组件，如果直接被包在 keep-alive 里面，所有路径匹配到的视图组件都会被缓存：
+
+```JavaScript
+	<keep-alive>
+     <router-view>
+       <!-- 所有路径匹配到的视图组件都会被缓存 -->
+     </router-view>
+    </keep-alive>
+```
+
+> 通过create声明周期函数来验证

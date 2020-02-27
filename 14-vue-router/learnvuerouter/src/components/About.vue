@@ -7,7 +7,18 @@
 
 <script>
 export default {
-  name: 'About'
+  name: 'About',
+  // created() {
+  //   console.log('created');
+  //   document.title = '关于'
+  // },
+  created() {
+    console.log('user created');
+    // document.title = '用户'
+  },
+  destroyed() {
+    console.log('user destroyed');
+  }
 }
 </script>
 

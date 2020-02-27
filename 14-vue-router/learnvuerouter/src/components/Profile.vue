@@ -9,7 +9,14 @@
 
 <script>
 export default {
-  name: 'Profile'
+  name: 'Profile',
+  created() {
+    console.log('Profile created');
+    // document.title = '用户'
+  },
+  destroyed() {
+    console.log('Profile destroyed');
+  }
 }
 </script>
 
