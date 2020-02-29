@@ -1518,3 +1518,74 @@ scheme://host:port/path?query#fragement
 ```
 
 > 通过create声明周期函数来验证
+
+### 10.案例:TabBar
+
+1. 如果在下方有一个单独的TabBar组件，你如何封装
+	+ 自定义TabBar组件，在APP中使用
+	+ 让TabBar出于底部，并且设置相关的样式
+
+2. TabBar中显示的内容由外界决定
+	+ 定义插槽
+	+ flex布局平分TabBar
+
+3. 自定义TabBarItem，可以传入 图片和文字
+	+ 定义TabBarItem，并且定义两个插槽：图片、文字。
+	+ 给两个插槽外层包装div，用于设置样式。
+	+ 填充插槽，实现底部TabBar的效果
+
+4. 传入 高亮图片
+	+ 定义另外一个插槽，插入active-icon的数据
+	+ 定义一个变量isActive，通过v-show来决定是否显示对应的icon
+
+5. TabBarItem绑定路由数据
+	+ 安装路由：npm install vue-router —save
+	+ 完成router/index.js的内容，以及创建对应的组件
+	+ main.js中注册router
+	+ APP中加入<router-view>组件
+
+6. 点击item跳转到对应路由，并且动态决定isActive
+	+ 监听item的点击，通过this.$router.replace()替换路由路径
+	+ 通过this.$route.path.indexOf(this.link) !== -1来判断是否是active
+
+7. 动态计算active样式
+	+ 封装新的计算属性：this.isActive ? {‘color’: ‘red’} : {}
+
+![image](https://img-blog.csdnimg.cn/20200114004152110.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d1eXhpbnU=,size_16,color_FFFFFF,t_70)
+
+## 15. Promise
+
+### 1.什么是 Promise
+
+- ES6中一个非常重要和好用的特性就是Promise
+	+ 但是初次接触Promise会一脸懵逼，这TM是什么东西？
+	+ 看看官方或者一些文章对它的介绍和用法，也是一头雾水。
+
+- Promise到底是做什么的呢？
+	+ Promise是异步编程的一种解决方案。
+
+- 那什么时候我们会来处理异步事件呢？
+	+ 一种很常见的场景应该就是网络请求了。
+	+ 我们封装一个网络请求的函数，因为不能立即拿到结果，所以不能像简单的3+4=7一样将结果返回。
+	+ 所以往往我们会传入另外一个函数，在数据请求成功时，将数据通过传入的函数回调出去。
+	+ 如果只是一个简单的网络请求，那么这种方案不会给我们带来很大的麻烦。
+
+- 但是，当网络请求非常复杂时，就会出现回调地狱。
+	+ OK，我以一个非常夸张的案例来说明。
+
+#### 网络请求的回调地狱
+
+- 我们来考虑下面的场景(有夸张的成分)：
+	+ 我们需要通过一个url1从服务器加载一个数据data1，data1中包含了下一个请求的url2
+	+ 我们需要通过data1取出url2，从服务器加载数据data2，data2中包含了下一个请求的url3
+	+ 我们需要通过data2取出url3，从服务器加载数据data3，data3中包含了下一个请求的url4
+	+ 发送网络请求url4，获取最终的数据data4
+
+![image](https://img-blog.csdnimg.cn/20200114014219641.png)
+
+- 上面的代码有什么问题吗？
+	+ 正常情况下，不会有什么问题，可以正常运行并且获取我们想要的结果。
+	+ 但是，这样额代码难看而且不容易维护。
+	+ 我们更加期望的是一种更加优雅的方式来进行这种异步操作。
+- 如何做呢？就是使用Promise。
+	+ Promise可以以一种非常优雅的方式来解决这个问题。
