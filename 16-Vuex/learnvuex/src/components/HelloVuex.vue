@@ -1,13 +1,21 @@
 <template>
   <div class="hello">
-    <h2>我是HelloVuex的组件</h2>
+    <h2>{{message}}</h2>
     <h2>{{$store.state.counter}}</h2>
+    <h2>{{messages}}</h2>
+    <h2>{{$store.getters.powerCounter}}</h2>
   </div>
 </template>
 
 <script>
 export default {
   name: 'HelloVuex',
+  data() {
+    return {
+      message: '我是HelloVuex的组件',
+      messages: 'getters'
+    }
+  },
 }
 </script>
 

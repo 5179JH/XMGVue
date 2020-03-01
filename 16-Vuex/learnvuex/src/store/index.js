@@ -10,13 +10,21 @@ const store = new Vuex.Store({
     counter: 1000
   },
   mutations: {
-
+    // 方法
+    increment(state) {
+      state.counter++
+    },
+    decrement(state) {
+      state.counter--
+    }
   },
   actions: {
 
   },
   getters: {
-
+    powerCounter(state) {
+      return state.counter * state.counter
+    }
   },
   modules: {
 
