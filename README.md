@@ -1589,3 +1589,100 @@ scheme://host:port/path?query#fragement
 	+ 我们更加期望的是一种更加优雅的方式来进行这种异步操作。
 - 如何做呢？就是使用Promise。
 	+ Promise可以以一种非常优雅的方式来解决这个问题。
+
+### 2.Promise的基本使用
+
+#### 1.定时器的异步事件
+
+我们先来看看Promise最基本的语法。
+这里，我们用一个定时器来模拟异步事件：
+假设下面的data是从网络上1秒后请求的数据
+console.log就是我们的处理方式。
+这是我们过去的处理方式，我们将它换成Promise代码
+这个例子会让我们感觉脱裤放屁，多此一举
+首先，下面的Promise代码明显比上面的代码看起来还要复杂。
+其次，下面的Promise代码中包含的resolve、reject、then、catch都是些什么东西？
+我们先不管第一个复杂度的问题，因为这样的一个屁大点的程序根本看不出来Promise真正的作用。
+
+![image](https://img-blog.csdnimg.cn/20200114014236394.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d1eXhpbnU=,size_16,color_FFFFFF,t_70)
+
+#### 2.定时器异步事件解析
+
+> 我们先来认认真真的读一读这个程序到底做了什么？
+
+- new Promise很明显是创建一个Promise对象
+- 小括号中((resolve, reject) => {})也很明显就是一个函数，而且我们这里用的是之前刚刚学习过的箭头函数。
+	+ 但是resolve, reject它们是什么呢？
+	+ 我们先知道一个事实：在创建Promise时，传入的这个箭头函数是固定的（一般我们都会这样写）
+resolve和reject它们两个也是函数，通常情况下，我们会根据请求数据的成功和失败来决定调用哪一个。
+- 成功还是失败？
+	+ 如果是成功的，那么通常我们会调用resolve(messsage)，这个时候，我们后续的then会被回调。
+	+ 如果是失败的，那么通常我们会调用reject(error)，这个时候，我们后续的catch会被回调。
+> OK，这就是Promise最基本的使用了。
+
+#### 3.Promise三种状态
+
+- 首先, 当我们开发中有异步操作时, 就可以给异步操作包装一个Promise
+- 异步操作之后会有三种状态
+
+- 我们一起来看一下这三种状态:
+	+ pending：等待状态，比如正在进行网络请求，或者定时器没有到时间。
+	+ fulfill：满足状态，当我们主动回调了resolve时，就处于该状态，并且会回调.then()
+	+ reject：拒绝状态，当我们主动回调了reject时，就处于该状态，并且会回调.catch()
+
+![image](https://img-blog.csdnimg.cn/20200114014249172.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d1eXhpbnU=,size_16,color_FFFFFF,t_70)
+
+![image](https://img-blog.csdnimg.cn/20200114014255646.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d1eXhpbnU=,size_16,color_FFFFFF,t_70)
+
+### 3.Promise的链式调用
+
+- 我们在看Promise的流程图时，发现无论是then还是catch都可以返回一个Promise对象。
+- 所以，我们的代码其实是可以进行链式调用的：
+- 这里我们直接通过Promise包装了一下新的数据，将Promise对象返回了
+	+ sPromise.resovle()：将数据包装成Promise对象，并且在内部回调resolve()函数
+	+ sPromise.reject()：将数据包装成Promise对象，并且在内部回调reject()函数
+
+![image](https://img-blog.csdnimg.cn/20200114014314858.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d1eXhpbnU=,size_16,color_FFFFFF,t_70)
+
+#### 链式调用简写
+
+> 简化版代码：
+如果我们希望数据直接包装成Promise.resolve，那么在then中可以直接返回数据
+注意下面的代码中，我讲return Promise.resovle(data)改成了return data
+结果依然是一样的
+
+![image](https://img-blog.csdnimg.cn/20200114014327723.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d1eXhpbnU=,size_16,color_FFFFFF,t_70)
+
+## 16.Vuex
+
+### 1.认识Vuex
+
+#### 1.Vuex是做什么的?
+
+- 官方解释：Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。
+	+ 它采用 集中式存储管理 应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。
+	+ Vuex 也集成到 Vue 的官方调试工具 devtools extension，提供了诸如零配置的 time-travel 调试、状态快照导入导出等高级调试功能。
+
+- 状态管理到底是什么？
+	+ 状态管理模式、集中式存储管理这些名词听起来就非常高大上，让人捉摸不透。
+	+ 其实，你可以简单的将其看成把需要多个组件共享的变量全部存储在一个对象里面。
+	+ 然后，将这个对象放在顶层的Vue实例中，让其他组件可以使用。
+	+ 那么，多个组件是不是就可以共享这个对象中的所有变量属性了呢？
+
+- 等等，如果是这样的话，为什么官方还要专门出一个插件Vuex呢？难道我们不能自己封装一个对象来管理吗？
+	+ 当然可以，只是我们要先想想VueJS带给我们最大的便利是什么呢？没错，就是响应式。
+	+ 如果你自己封装实现一个对象能不能保证它里面所有的属性做到响应式呢？当然也可以，只是自己封装可能稍微麻烦一些。
+	+ 不用怀疑，Vuex就是为了提供这样一个在多个组件间共享状态的插件，用它就可以了。
+
+#### 2.管理什么状态呢?
+
+- 但是，有什么状态时需要我们在多个组件间共享的呢？
+	+ 如果你做过大型开放，你一定遇到过多个状态，在多个界面间的共享问题。
+	+ 比如用户的登录状态、用户名称、头像、地理位置信息等等。
+	+ 比如商品的收藏、购物车中的物品等等。
+	+ 这些状态信息，我们都可以放在统一的地方，对它进行保存和管理，而且它们还是响应式的（待会儿我们就可以看到代码了，莫着急）。
+
+- OK，从理论上理解了状态管理之后，让我们从实际的代码再来看看状态管理。
+	+ 毕竟，Talk is cheap, Show me the code.(来自Linus)
+
+- 我们先来看看但界面的状态管理吧.
