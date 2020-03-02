@@ -1592,7 +1592,7 @@ scheme://host:port/path?query#fragement
 
 ### 2.Promise的基本使用
 
-#### 1.定时器的异步事件
+#### a.定时器的异步事件
 
 我们先来看看Promise最基本的语法。
 这里，我们用一个定时器来模拟异步事件：
@@ -1606,7 +1606,7 @@ console.log就是我们的处理方式。
 
 ![image](https://img-blog.csdnimg.cn/20200114014236394.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d1eXhpbnU=,size_16,color_FFFFFF,t_70)
 
-#### 2.定时器异步事件解析
+#### b.定时器异步事件解析
 
 > 我们先来认认真真的读一读这个程序到底做了什么？
 
@@ -1657,7 +1657,7 @@ resolve和reject它们两个也是函数，通常情况下，我们会根据请�
 
 ### 1.认识Vuex
 
-#### 1.Vuex是做什么的?
+#### a.Vuex是做什么的?
 
 - 官方解释：Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。
 	+ 它采用 集中式存储管理 应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。
@@ -1674,7 +1674,7 @@ resolve和reject它们两个也是函数，通常情况下，我们会根据请�
 	+ 如果你自己封装实现一个对象能不能保证它里面所有的属性做到响应式呢？当然也可以，只是自己封装可能稍微麻烦一些。
 	+ 不用怀疑，Vuex就是为了提供这样一个在多个组件间共享状态的插件，用它就可以了。
 
-#### 2.管理什么状态呢?
+#### b.管理什么状态呢?
 
 - 但是，有什么状态时需要我们在多个组件间共享的呢？
 	+ 如果你做过大型开放，你一定遇到过多个状态，在多个界面间的共享问题。
@@ -1686,3 +1686,184 @@ resolve和reject它们两个也是函数，通常情况下，我们会根据请�
 	+ 毕竟，Talk is cheap, Show me the code.(来自Linus)
 
 - 我们先来看看但界面的状态管理吧.
+
+#### c.单界面的状态管理
+
+- 我们知道，要在单个组件中进行状态管理是一件非常简单的事情
+- 什么意思呢？我们来看下面的图片。
+- 这图片中的三种东西，怎么理解呢？
+	+ State：不用多说，就是我们的状态。（你姑且可以当做就是data中的属性）
+	+ View：视图层，可以针对State的变化，显示不同的信息。（这个好理解吧？）
+	+ Actions：这里的Actions主要是用户的各种操作：点击、输入等等，会导致状态的改变。
+
+- 写点代码，加深理解：
+- 看下边的代码效果, 肯定会实现吧?
+
+![image](https://img-blog.csdnimg.cn/20200114014359407.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d1eXhpbnU=,size_16,color_FFFFFF,t_70)
+
+#### d.单界面状态管理的实现
+
+![image](https://img-blog.csdnimg.cn/20200114014401499.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d1eXhpbnU=,size_16,color_FFFFFF,t_70)
+
+在这个案例中，我们有木有状态需要管理呢？没错，就是个数counter。
+counter需要某种方式被记录下来，也就是我们的State。
+counter目前的值需要被显示在界面中，也就是我们的View部分。
+界面发生某些操作时（我们这里是用户的点击，也可以是用户的input），需要去更新状态，也就是我们的Actions
+这不就是上面的流程图了吗？
+
+#### e.多界面状态管理
+
+- Vue已经帮我们做好了单个界面的状态管理，但是如果是多个界面呢？
+	+ 多个试图都依赖同一个状态（一个状态改了，多个界面需要进行更新）
+	+ 不同界面的Actions都想修改同一个状态（Home.vue需要修改，Profile.vue也需要修改这个状态）
+
+- 也就是说对于某些状态(状态1/状态2/状态3)来说只属于我们某一个试图，但是也有一些状态(状态a/状态b/状态c)属于多个试图共同想要维护的
+	+ 状态1/状态2/状态3你放在自己的房间中，你自己管理自己用，没问题。
+	+ 但是状态a/状态b/状态c我们希望交给一个大管家来统一帮助我们管理！！！
+	+ 没错，Vuex就是为我们提供这个大管家的工具。
+
+- 全局单例模式（大管家）
+	+ 我们现在要做的就是将共享的状态抽取出来，交给我们的大管家，统一进行管理。
+	+ 之后，你们每个试图，按照我规定好的规定，进行访问和修改等操作。
+	+ 这就是Vuex背后的基本思想。
+
+#### f.Vuex状态管理图例
+
+![image](https://img-blog.csdnimg.cn/20200114014421796.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d1eXhpbnU=,size_16,color_FFFFFF,t_70)
+
+### 2.Vuex的基本使用
+
+#### a.简单的案例
+
+我们还是实现一下之前简单的案例
+
+![image](https://img-blog.csdnimg.cn/20200114014428667.png)
+
+首先，我们需要在某个地方存放我们的Vuex代码：
+这里，我们先创建一个文件夹store，并且在其中创建一个index.js文件
+在index.js文件中写入如下代码：
+
+![image](https://img-blog.csdnimg.cn/2020011401443974.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d1eXhpbnU=,size_16,color_FFFFFF,t_70)
+
+#### b.挂载到Vue实例中
+
+其次，我们让所有的Vue组件都可以使用这个store对象
+来到main.js文件，导入store对象，并且放在new Vue中
+这样，在其他Vue组件中，我们就可以通过this.$store的方式，获取到这个store对象了
+
+![image](https://img-blog.csdnimg.cn/20200114014448832.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d1eXhpbnU=,size_16,color_FFFFFF,t_70)
+
+#### c.使用Vuex的count
+
+![image](https://img-blog.csdnimg.cn/20200114014500683.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d1eXhpbnU=,size_16,color_FFFFFF,t_70)
+
+- 好的，这就是使用Vuex最简单的方式了。
+- 我们来对使用步骤，做一个简单的小节：
+	1. 提取出一个公共的store对象，用于保存在多个组件中共享的状态
+	2. 将store对象放置在new Vue对象中，这样可以保证在所有的组件中都可以使用到
+	3. 在其他组件中使用store对象中保存的状态即可
+		+ 通过this.$store.state.属性的方式来访问状态
+		+ 通过this.$store.commit(‘mutation中方法’)来修改状态
+
+- 注意事项：
+	+ 我们通过提交mutation的方式，而非直接改变store.state.count。
+	+ 这是因为Vuex可以更明确的追踪状态的变化，所以不要直接改变store.state.count的值。
+
+### 3.Vuex核心概念
+
+#### a.State单一状态树
+
+Vuex提出使用单一状态树, 什么是单一状态树呢？
+英文名称是Single Source of Truth，也可以翻译成单一数据源。
+
+’但是，它是什么呢？我们来看一个生活中的例子。
+OK，我用一个生活中的例子做一个简单的类比。
+我们知道，在国内我们有很多的信息需要被记录，比如上学时的个人档案，工作后的社保记录，公积金记录，结婚后的婚姻信息，以及其他相关的户口、医疗、文凭、房产记录等等（还有很多信息）。
+这些信息被分散在很多地方进行管理，有一天你需要办某个业务时(比如入户某个城市)，你会发现你需要到各个对应的工作地点去打印、盖章各种资料信息，最后到一个地方提交证明你的信息无误。
+这种保存信息的方案，不仅仅低效，而且不方便管理，以及日后的维护也是一个庞大的工作(需要大量的各个部门的人力来维护，当然国家目前已经在完善我们的这个系统了)。
+
+这个和我们在应用开发中比较类似：
+如果你的状态信息是保存到多个Store对象中的，那么之后的管理和维护等等都会变得特别困难。
+所以Vuex也使用了单一状态树来管理应用层级的全部状态。
+单一状态树能够让我们最直接的方式找到某个状态的片段，而且在之后的维护和调试过程中，也可以非常方便的管理和维护。
+
+#### b.Getters
+
+有时候，我们需要从store中获取一些state变异后的状态，比如下面的Store中：
+获取学生年龄大于20的个数。
+
+![image](https://img-blog.csdnimg.cn/20200114014511478.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d1eXhpbnU=,size_16,color_FFFFFF,t_70)
+
+我们可以在Store中定义getters
+
+![image](https://img-blog.csdnimg.cn/20200114014520943.png)
+
+#### c.Getters作为参数和传递参数
+
+如果我们已经有了一个获取所有年龄大于20岁学生列表的getters, 那么代码可以这样来写
+
+![image](https://img-blog.csdnimg.cn/20200114014536863.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d1eXhpbnU=,size_16,color_FFFFFF,t_70)
+
+getters默认是不能传递参数的, 如果希望传递参数, 那么只能让getters本身返回另一个函数.
+比如上面的案例中,我们希望根据ID获取用户的信息
+
+![image](https://img-blog.csdnimg.cn/20200114014546495.png)
+
+#### d.Mutation状态更新
+
+- Vuex的store状态的更新唯一方式：提交Mutation
+- Mutation主要包括两部分：
+	+ 字符串的事件类型（type）
+	+ 一个回调函数（handler）,该回调函数的第一个参数就是state。
+- mutation的定义方式：
+
+![image](https://img-blog.csdnimg.cn/20200114014555335.png)
+
+##### 通过mutation更新
+
+![image](https://img-blog.csdnimg.cn/20200114014602324.png)
+
+##### Mutation传递参数
+
+在通过mutation更新数据的时候, 有可能我们希望携带一些额外的参数
+参数被称为是mutation的载荷(Payload)
+Mutation中的代码:
+
+![image](https://img-blog.csdnimg.cn/20200114014613468.png)
+
+但是如果参数不是一个呢?
+比如我们有很多参数需要传递.
+这个时候, 我们通常会以对象的形式传递, 也就是payload是一个对象.
+这个时候可以再从对象中取出相关的信息.
+
+![image](https://img-blog.csdnimg.cn/20200114014621690.png)
+
+#### e.Mutation提交风格
+
+上面的通过commit进行提交是一种普通的方式
+Vue还提供了另外一种风格, 它是一个包含type属性的对象
+
+![image](https://img-blog.csdnimg.cn/20200114014631320.png)
+
+Mutation中的处理方式是将整个commit的对象作为payload使用, 所以代码没有改变, 依然如下:
+
+![image](https://img-blog.csdnimg.cn/20200114014639383.png)
+
+#### f.Mutation响应规则
+
+- Vuex的store中的state是响应式的, 当state中的数据发生改变时, Vue组件会自动更新.
+- 这就要求我们必须遵守一些Vuex对应的规则:
+
+	+ 提前在store中初始化好所需的属性.
+	+ 当给state中的对象添加新属性时, 使用下面的方式:
+		- 方式一: 使用Vue.set(obj, ‘newProp’, 123)
+		- 方式二: 用心对象给旧对象重新赋值
+- 我们来看一个例子:
+- 当我们点击更新信息时, 界面并没有发生对应改变.
+
+- 如何才能让它改变呢?
+	+ 查看下面代码的方式一和方式二
+	+ 都可以让state中的属性是响应式的.
+
+![image](https://img-blog.csdnimg.cn/20200114014648229.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d1eXhpbnU=,size_16,color_FFFFFF,t_70)
+
