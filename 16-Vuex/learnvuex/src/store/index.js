@@ -44,7 +44,12 @@ const store = new Vuex.Store({
       state.students.push(stu)
     },
     updateInfo(state) {
-      state.info.name = 'codewhy'
+      // state.info.name = 'codewhy'
+      // state.info['height'] = 1.88   这样增加的值不是响应式的
+      // delete state.info.age  这样增加的值也不是响应式的
+      // vue 支持响应式的方法有 
+      // Vue.set(state.info, 'height', 1.88)
+      Vue.delete(state.info, 'age')
     }
   },
   actions: {
@@ -71,6 +76,3 @@ const store = new Vuex.Store({
 
 // 3.导出 store 对象
 export default store
-
-
-
