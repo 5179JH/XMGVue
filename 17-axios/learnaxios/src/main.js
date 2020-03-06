@@ -90,3 +90,13 @@ instances({
 }).then(res => {
   console.log(res)
 })
+
+import {request} from './network/request'
+
+request({
+  url: '/home/test/tpl'
+}).then(res => {
+  console.log(res)
+}).catch(err => {
+  console.log(err)
+})
