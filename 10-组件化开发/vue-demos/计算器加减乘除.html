@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+	</head>
+	<body>
+		<div id="app">
+			<input type="number" v-model.number="firstnumber">
+			<select v-model="operation">
+				<option value="+">+</option>
+				<option value="-">-</option>
+				<option value="*">*</option>
+				<option value="/">/</option>
+			</select>
+			<input type="number" v-model.number="lastnumber">
+			<button @click="jisuan">=</button> <strong>{{ result }}</strong>
+		</div>
+		<script src="node_modules/vue/dist/vue.js"></script>
+		<script>
+			const app = new Vue({
+				el: '#app',
+				data: {
+					operation: '',
+					firstnumber: '',
+					lastnumber: '',
+					result:''
+				},
+				methods: {
+					end: function(){
+						let  firstnumber=  parseFloat(this.firstnumber)
+						let  lastnumber=  parseFloat(this.lastnumber)
+						if (this.operation === '0') {
+							this.equal = firstnumber + lastnumber
+						} else if (this.operation === '1') {
+							this.result = firstnumber - lastnumber
+						} else if (this.operation === '2') {
+							this.result = firstnumber * lastnumber
+						} else if (this.operation === '3') {
+							this.result = firstnumber / lastnumber
+						}
+					},
+					jisuan(){
+						console.log( this.firstnumber+this.operation+this.lastnumber);
+						this.result=eval(this.firstnumber+this.operation+this.lastnumber)
+					}
+				},
+				
+			})
+		</script>
+	</body>
+</html>

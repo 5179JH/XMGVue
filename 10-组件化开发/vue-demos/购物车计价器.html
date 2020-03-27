@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>Document</title>
+	</head>
+	<body>
+		<div id="app">
+			商品价格: <input type="text" v-model="price"><br>
+			商品数量: <button @click="reduce">-</button>
+			<span>{{ number }}</span>
+			<button @click="add">+</button><br>
+			总价: <strong>{{ price * number }}</strong>
+		</div>
+		<script src="node_modules/vue/dist/vue.js"></script>
+		<script>
+			const app = new Vue({
+				el: '#app',
+				data: {
+					price: 5,
+					number: 5
+				},
+				methods: {
+					reduce: function() {
+						if (this.number > 0) {
+							this.number--
+						} else {
+							this.number=0
+						}
+					},
+					add () {
+						this.number++
+					}
+				}
+			})
+		</script>
+	</body>
+</html>
