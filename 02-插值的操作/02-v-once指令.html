@@ -1,42 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
-
 <body>
   <div id="app">
-    <h2>{{msg}}</h2>
-    <button @click='increase'>+</button>
-    <button @click='decrease'>-</button>
+    <h2>{{message}}</h2>
+    <h2 v-once>{{message}}</h2>
   </div>
   <script src="../js/vue.js"></script>
   <script>
     const app = new Vue({
       data() {
         return {
-          msg: 1
+          message: '你好啊'
         }
-      },
-      methods: {
-        increase() {
-          this.msg++
-        },
-        decrease() {
-          this.msg--
-        }
-      },
-      created() {
-        console.log('created');
-      },
-      mounted() {
-        console.log('mounted')
       },
     }).$mount('#app')
   </script>
 </body>
-
 </html>
