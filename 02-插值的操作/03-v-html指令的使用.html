@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  [v-cloak] {
+    display: none;
+  }
+</style>
+<body>
+  <div id="app" v-cloak>
+    <h2 v-html = 'msg'></h2>
+    <h2 v-text = 'msg'></h2>
+    <h2>{{msg}}</h2>
+    <h2 v-pre>{{msg}}</h2>
+  </div>
+  <script src="../js/vue.js"></script>
+  <script>
+    setTimeout(() => {
+      const app = new Vue({
+      data() {
+        return {
+          msg:'<a href="http://www.baidu.com">百度一下</a>'
+        }
+      },
+    }).$mount('#app')
+    }, 1000);
+  </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+<div id="app">
+  <h2 class="aaa" :class="[active, line]">{{msg}}</h2>
+  <h2 class="aaa" :class="getClasses()">{{msg}}</h2>
+  <button>变色</button>
+</div>
+
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      data() {
+        return {
+          msg: '你好啊',
+          active: 'aaa',
+          line: 'bbb'
+        }
+      },
+      methods: {
+        getClasses() {
+          return ['active', 'line']
+        }
+      },
+    }).$mount('#app')
+  </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  .active {
+    color: pink;
+  }
+</style>
+<body>
+  <div id="app">
+    <ul>
+      <li :class="{active: active}" v-for='(item, index) in movies' @click='btnClick(index)'>{{item}}</li>
+    </ul>
+  </div>
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      data() {
+        return {
+          active: false,
+          movies: ['海王', '海尔兄弟', '海贼王', '进击的巨人']
+        }
+      },
+      methods: {
+        btnClick(index) {
+          
+        }
+      },
+    }).$mount('#app')
+  </script>
+</body>
+
+</html>

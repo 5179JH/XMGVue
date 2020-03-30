@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  .active {
+    color: pink;
+  }
+  .line {
+    display: none;
+  }
+</style>
+<body>
+<div id="app">
+  <h2 :class="{active: isActive, line: isLine}">{{msg}}</h2>
+  <h2 :class="getClasses()">{{msg}}</h2>
+  <button @click='btnClick'>变色</button>
+</div>
+
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      data() {
+        return {
+          msg: '你好啊',
+          isActive: true,
+          isLine: false
+        }
+      },
+      methods: {
+        btnClick() {
+          this.isActive = !this.isActive
+        },
+        getClasses() {
+          return {active: this.isActive, line: this.isLine}
+        }
+      },
+    }).$mount('#app')
+  </script>
+</body>
+</html>
