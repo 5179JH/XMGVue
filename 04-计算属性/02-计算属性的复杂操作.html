@@ -7,7 +7,7 @@
 </head>
 <body>
   <div id="app">
-    <h2>总价格：{{totalPrice}}</h2>
+    <h2 @click="btnClick">总价格：{{totalPrice}}</h2>
   </div>
   <script src="../js/vue.js"></script>
   <script>
@@ -26,10 +26,24 @@
         totalPrice() {
           // return this.books[0].price + this.books[1].price + this.books[2].price + this.books[3].price
           let result = 0
-          for (let i = 0; i < this.books.length; i++) {
-            result += this.books[i].price            
+          // for (let i = 0; i < this.books.length; i++) {
+          //   result += this.books[i].price            
+          // }
+          // for (const i in this.books) {
+          //   result += this.books[i].price
+          // }
+          for (const i of this.books) {
+            result += i.price
           }
           return result
+        }
+      },
+      methods: {
+        btnClick() {
+          for (const i of this.books) {
+            console.log(i);
+            
+          }
         }
       },
     }).$mount('#app')
