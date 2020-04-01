@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 通过methods调用 -->
+    <h2>{{getFullName()}}</h2>
+    <h2>{{getFullName()}}</h2>
+    <h2>{{getFullName()}}</h2>
+    <h2>{{getFullName()}}</h2>
+    <!-- 通过 computed 调用 -->
+    <h2>{{fullName}}</h2>
+    <h2>{{fullName}}</h2>
+    <h2>{{fullName}}</h2>
+    <h2>{{fullName}}</h2>
+  </div>
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      data() {
+        return {
+          firstName: '111',
+          lastName: '222'
+        }
+      },
+      computed: {
+        fullName() {
+          console.log('computed');
+          return this.firstName + ' ' + this.lastName
+        }
+      },
+      methods: {
+        getFullName() {
+          console.log('methods');
+          return this.firstName + ' ' + this.lastName
+        }
+      },
+    }).$mount('#app')
+  </script>
+</body>
+
+</html>
