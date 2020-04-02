@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <!-- <h2 v-if="score>=90">优秀</h2>
+    <h2 v-else-if="score>=60">及格</h2>
+    <h2 v-else>不及格</h2> -->
+    <h2>{{result}}</h2>
+  </div>
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      data() {
+        return {
+          msg: '你好啊',
+          score: 60,
+        }
+      },
+      computed: {
+        result() {
+
+          if( this.score >= 90 ) {
+            this.msg = '优秀'
+          } else if ( this.score >= 60 ) {
+            this.msg = '及格'
+          } else {
+            this.msg = '不及格'
+          }
+          return this.msg
+        }
+      },
+    }).$mount('#app')
+  </script>
+</body>
+</html>
