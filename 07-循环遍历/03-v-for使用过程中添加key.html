@@ -10,13 +10,22 @@
 <body>
   <div id="app">
     <!-- key 的作用主要是为了高效的更新虚拟 DOM -->
-
+    <ul>
+      <li v-for="item in letters" :key="item">{{item}}</li>
+    </ul>
+    <button @click="btnClick">按钮</button>
   </div>
   <script src="../js/vue.js"></script>
   <script>
     const app = new Vue({
       data() {
         return {
+          letters: ['a','b','c','d']
+        }
+      },
+      methods: {
+        btnClick() {
+          this.letters.splice(2,0,'e')
         }
       },
     }).$mount('#app')

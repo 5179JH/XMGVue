@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- key 的作用主要是为了高效的更新虚拟 DOM -->
+    <ul>
+      <li v-for="item in letters" :key="item">{{item}}</li>
+    </ul>
+    <button @click="btnClick">按钮</button>
+  </div>
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      data() {
+        return {
+          letters: ['a','b','c','d']
+        }
+      },
+      methods: {
+        btnClick() {
+          // 1. .push() 在数组最后面插入元素（可以是多个）
+          // this.letters.push('e','f')
+          // 2. .pop() 删除数组中的最后一个元素
+          // this.letters.pop()
+          // 3. .shift() 删除数组中的第一个元素
+          // this.letters.shift()
+          // 4. .unshift() 在数组的最前面插入元素（可以是多个）
+          // this.letters.unshift()
+          // 5. .splice() 删除元素/插入元素/替换元素
+          // 第一个参数是数组的起始位置
+          // 删除元素：第二个参数传入你想要删除几个元素（如果没有传，就默认删除后面所有的元素）
+          // 替换元素：第二个参数，表示我们要替换几个元素，后面是用于替换前面的元素
+          // 插入元素： 第二个参数，传入0，并且后面跟上要插入的元素
+          // this.letters.splice(1,1)
+          // 6. .sort() 排序
+          // this.letters.sort()
+          // 7. .reverse() 反转
+          // this.letters.reverse()
+          // 注意： 通过索引值修改数组的元素不是响应式的
+          // 8. .set(要修改的对象，索引值， 修改后的值) 方法
+          Vue.set(this.letters, 0, 'bbbbbbb')
+        }
+      },
+    }).$mount('#app')
+  </script>
+</body>
+
+</html>
