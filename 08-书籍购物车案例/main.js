@@ -33,7 +33,29 @@ const app = new Vue({
       ]
     }
   },
+  filters: {
+    showPrice(price) {
+      return '￥' + price.toFixed(2)
+    }
+  },
+  methods: {
+    increment(index) {
+      this.books[index].count++
+    },
+    decrement(index) {
+      this.books[index].count--
+    },
+    removeBtn(index) {
+      this.books.splice(index, 1)
+    }
+  },
   computed: {
-    
+    totalProce() {
+      let totalPrice = 0
+      for (const i in this.books) {
+        totalPrice += this.books[i].price * this.books[i].count
+      }
+      return totalPrice
+    }
   },
 }).$mount('#app')
